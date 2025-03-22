@@ -1,0 +1,20 @@
+{
+  "Type": "Npc",
+  "Evento": "tick",
+  "EntityInfo": {
+    "id": "68aa32a9-714c-4a13-80d2-07ab439bd672",
+    "name": "Pimba",
+    "health": 20,
+    "maxHealth": 20,
+    "isAlive": true,
+    "age": 940,
+    "lastAttacker": "None",
+    "lookingAt": "minecraft:grass",
+    "position": {
+      "dimension": 0,
+      "x": -83.5,
+      "y": 106,
+      "z": -901.5
+    }
+  }
+}

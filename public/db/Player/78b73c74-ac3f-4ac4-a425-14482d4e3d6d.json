@@ -1,0 +1,35 @@
+{
+  "Type": "Player",
+  "Evento": "tick",
+  "EntityInfo": {
+    "id": "78b73c74-ac3f-4ac4-a425-14482d4e3d6d",
+    "name": "PiuDeliro",
+    "health": 20,
+    "maxHealth": 20,
+    "isAlive": true,
+    "age": 6070,
+    "lastAttacker": "Pimba",
+    "lookingAt": "minecraft:trapdoor",
+    "PlayerInfo": {
+      "hunger": 20,
+      "exp": 0,
+      "gamemode": 1,
+      "screenSize": "490x958"
+    },
+    "Inventory": {
+      "heldItem": "customnpcs:npcWand",
+      "armor": {
+        "head": "minecraft:chainmail_helmet",
+        "chest": "minecraft:diamond_chestplate",
+        "legs": "minecraft:golden_leggings",
+        "feet": "minecraft:leather_boots"
+      }
+    },
+    "position": {
+      "dimension": 0,
+      "x": -80.49252396259861,
+      "y": 106,
+      "z": -900.4865450805296
+    }
+  }
+}
