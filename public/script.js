@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 card.appendChild(name)//Adiciona o nome dentro da div
                 document.getElementById("playground").appendChild(card)//adiciona a div (com o nome dentro) dentro da div que já ta no html do site /public/index.html
+                //https://mc-heads.net/ <--- pegar cabeças de players
             }
         })
         .catch(error => {
