@@ -1,61 +1,56 @@
 
 function sendToServer(payload) {
-    var url = "http://192.168.1.105:3000/api";
-    API.postJsonHTTP(url, JSON.stringify(payload));
+    var url = "http://192.168.1.105:6060/api"; //<--- Ip do servidor node
+    API.postJsonHTTP(url, JSON.stringify(payload));//<--- Função que envia o json para o servidor
     return "[Enviado]";
 }
 
 
 
 
-function tick(e) {
+function tick(e) {//o Evento "TICK" é um evento que ocorre a cada tick do servidor, ou seja, a cada 50 milisegundos
+    // Função para enviar dados ao servidor
     sendToServer({
-        Type: "Player",
-        Evento: "tick",
-        EntityInfo: {
-            id: e.player.getUniqueID(),
-            name: e.player.getName(),
-            health: e.player.getHealth(),
-            maxHealth: e.player.getMaxHealth(),
-            isAlive: e.player.isAlive(),
-            age: e.player.getAge(),
-            lastAttacker: e.player.getLastAttacker() != null ? e.player.getLastAttacker().getName() : "None",
-            lookingAt: e.player.getLookingAtBlock(64) != null ? e.player.getLookingAtBlock(64).getName() : "Air",
+        Type: "Player", // Especifica o tipo de evento (relacionado ao jogador)
+        Evento: "tick", // Indica o tipo de evento (evento de tick)
+        EntityInfo: { // Contém informações detalhadas sobre a entidade do jogador
+            id: e.player.getUniqueID(), // ID único do jogador
+            name: e.player.getName(), // Nome do jogador
+            health: e.player.getHealth(), // Saúde atual do jogador
+            maxHealth: e.player.getMaxHealth(), // Saúde máxima do jogador
+            isAlive: e.player.isAlive(), // Booleano indicando se o jogador está vivo
+            age: e.player.getAge(), // Idade do jogador
+            lastAttacker: e.player.getLastAttacker() != null ? e.player.getLastAttacker().getName() : "None", // Último atacante do jogador
+            lookingAt: e.player.getLookingAtBlock(64) != null ? e.player.getLookingAtBlock(64).getName() : "Air", // Bloco que o jogador está olhando
             PlayerInfo: {
-                hunger: e.player.getHunger(),
-                exp: e.player.getExpLevel(),
-                gamemode: e.player.getMode(),
-                screenSize: e.player.getScreenSize().getHeight() + "x" + e.player.getScreenSize().getWidth(),
+                hunger: e.player.getHunger(), // Fome do jogador
+                exp: e.player.getExpLevel(), // Nível de experiência do jogador
+                gamemode: e.player.getMode(), // Modo de jogo do jogador
+                screenSize: e.player.getScreenSize().getHeight() + "x" + e.player.getScreenSize().getWidth(), // Tamanho da tela do jogador
             },
             Inventory: {
-                heldItem: e.player.getHeldItem() != null ? e.player.getHeldItem().getName() : "Air",
-                itens: e.player.getInventory(),
+                heldItem: e.player.getHeldItem() != null ? e.player.getHeldItem().getName() : "Air", // Item segurado pelo jogador
+                itens: e.player.getInventory(), // Inventário do jogador
                 armor: {
-                    head: e.player.getArmor(3) != null ? e.player.getArmor(3).getName() : "Air",
-                    chest: e.player.getArmor(2) != null ? e.player.getArmor(2).getName() : "Air",
-                    legs: e.player.getArmor(1) != null ? e.player.getArmor(1).getName() : "Air",
-                    feet: e.player.getArmor(0) != null ? e.player.getArmor(0).getName() : "Air"
+                    head: e.player.getArmor(3) != null ? e.player.getArmor(3).getName() : "Air", // Armadura na cabeça
+                    chest: e.player.getArmor(2) != null ? e.player.getArmor(2).getName() : "Air", // Armadura no peito
+                    legs: e.player.getArmor(1) != null ? e.player.getArmor(1).getName() : "Air", // Armadura nas pernas
+                    feet: e.player.getArmor(0) != null ? e.player.getArmor(0).getName() : "Air" // Armadura nos pés
                 }
             },
             position: {
-                dimension: e.player.getDimension(),
-                x: e.player.getX(),
-                y: e.player.getY(),
-                z: e.player.getZ()
+                dimension: e.player.getDimension(), // Dimensão em que o jogador está
+                x: e.player.getX(), // Coordenada X do jogador
+                y: e.player.getY(), // Coordenada Y do jogador
+                z: e.player.getZ() // Coordenada Z do jogador
             },
         }
-    })
+    });
 }
-
-
-
-
 /**
  * Eventos:
  * NPC
  * Player
- * Bloco
- * Item
  * World
  */
 

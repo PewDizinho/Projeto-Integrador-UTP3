@@ -7,17 +7,17 @@
     "health": 20,
     "maxHealth": 20,
     "isAlive": true,
-    "age": 6070,
-    "lastAttacker": "Pimba",
-    "lookingAt": "minecraft:trapdoor",
+    "age": 39450,
+    "lastAttacker": "None",
+    "lookingAt": "Air",
     "PlayerInfo": {
       "hunger": 20,
       "exp": 0,
       "gamemode": 1,
-      "screenSize": "490x958"
+      "screenSize": "480x854"
     },
     "Inventory": {
-      "heldItem": "customnpcs:npcWand",
+      "heldItem": "customnpcs:npcScripter",
       "armor": {
         "head": "minecraft:chainmail_helmet",
         "chest": "minecraft:diamond_chestplate",
@@ -27,9 +27,9 @@
     },
     "position": {
       "dimension": 0,
-      "x": -80.49252396259861,
-      "y": 106,
-      "z": -900.4865450805296
+      "x": -87.69999998807907,
+      "y": 108,
+      "z": -909.0650584738611
     }
   }
 }

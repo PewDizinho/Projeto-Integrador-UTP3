@@ -22,8 +22,26 @@ app.get("/", (req, res) => {
 
 
 //TODO: Puxar informações do mine
+app.post("/api", (req, res) => {
+    let body = "";
+    req.on("data", chunk => {
+        body += chunk.toString();
+    });
+    req.on("end", () => {
+        const jsonData = JSON.parse(body);
 
-
+        fs.writeFile(`public/db/${jsonData.Type}/${jsonData.EntityInfo.id}.json`, JSON.stringify(jsonData, null, 2), (err) => {
+            if (err) {
+                console.error("Error writing to file", err);
+                res.statusCode = 500;
+                res.end("Error saving data");
+                return;
+            }
+            console.log("[Received Data]", jsonData);
+        });
+        res.end("POST data received");
+    });
+});
 app.get("/players", (req, res) => {
     const directoryPath = __dirname + "\\public\\db\\Player";
 

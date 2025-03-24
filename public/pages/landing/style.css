@@ -10,6 +10,7 @@
     margin: 0px;
 }
 
+
 main {
     border: 2px solid transparent;
     user-select: none;
@@ -19,7 +20,6 @@ main {
     z-index: 2;
     margin: 0px;
     display: flex;
-    position: absolute;
     width: 700px;
     top: 25%;
     left: 25%;
