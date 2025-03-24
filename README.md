@@ -22,6 +22,6 @@ Npc -> Id, Nome, Vida, Vida Máxima, Vivo/Morto, Idade, último agressor, Olhand
 - Gabriela Rocca lobo da Costa ([GabRocca](https://github.com/GabRocca))
 - João Gabriel Castro de Oliveira ([Blu-guy](https://github.com/Blu-guy))
 - Luiz Henrique da Graça
-- Eduarda Horning
+- Eduarda Horning ([eduardahor](https://github.com/eduardahor))
 - José Otávio Chacorowski Raimundo
 
