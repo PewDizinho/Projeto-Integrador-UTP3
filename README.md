@@ -16,11 +16,11 @@ Npc -> Id, Nome, Vida, Vida Máxima, Vivo/Morto, Idade, último agressor, Olhand
 
 # Integrantes do Grupo
 
-- [Paulo Eduardo Konopka (PewDizinho)](https://github.com/PewDizinho)
-- [João Gualberto Boissa Netto (PirateCoder13)](https://github.com/PirateCoder13)
-- [Audrey Cristhiny Trindade Kochinski (Audrey2112)](https://github.com/Audrey2112)
-- [Gabriela Rocca lobo da Costa (GabRocca)](https://github.com/GabRocca)
-- [João Gabriel Castro de Oliveira (Blu-guy)](https://github.com/Blu-guy)
+- Paulo Eduardo Konopka ([PewDizinho](https://github.com/PewDizinho))
+- João Gualberto Boissa Netto ([PirateCoder13](https://github.com/PirateCoder13))
+- Audrey Cristhiny Trindade Kochinski ([Audrey2112](https://github.com/Audrey2112))
+- Gabriela Rocca lobo da Costa ([GabRocca](https://github.com/GabRocca))
+- João Gabriel Castro de Oliveira ([Blu-guy](https://github.com/Blu-guy))
 - Luiz Henrique da Graça
 - Eduarda Horning
 - José Otávio Chacorowski Raimundo
