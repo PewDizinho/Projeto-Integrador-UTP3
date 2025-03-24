@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Minecraftia';
-    src: url('./assets/fonts/minecraftia.ttf')
+    src: url('../../assets/fonts/minecraftia.ttf')
 }
 
 * {
@@ -61,7 +61,7 @@ main#selected {
 }
 
 body {
-    background-image: url("./assets/blocks/dirt.png");
+    background-image: url("../../assets/blocks/dirt.png");
     background-repeat: repeat;
     background-size: 64px;
     z-index: 0;
