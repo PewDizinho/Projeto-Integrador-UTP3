@@ -23,5 +23,5 @@ Npc -> Id, Nome, Vida, Vida Máxima, Vivo/Morto, Idade, último agressor, Olhand
 - João Gabriel Castro de Oliveira ([Blu-guy](https://github.com/Blu-guy))
 - Luiz Henrique da Graça
 - Eduarda Horning ([eduardahor](https://github.com/eduardahor))
-- José Otávio Chacorowski Raimundo
+- José Otávio Chacorowski Raimundo ([JoseOtavioCR](https://github.com/JoseOtavioCR))
 
