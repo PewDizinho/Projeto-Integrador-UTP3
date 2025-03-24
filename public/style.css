@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'Minecraftia';
+    src: url('./assets/fonts/minecraftia.ttf')
+}
+
+* {
+    font-family: 'Minecraftia', sans-serif;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+main {
+    border: 2px solid transparent;
+    user-select: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    margin: 0px;
+    display: flex;
+    position: absolute;
+    width: 700px;
+    top: 25%;
+    left: 25%;
+    justify-content: start;
+
+    img {
+        width: 124px;
+        height: 124px;
+    }
+
+    p#name {
+        margin: 0px 5px;
+    }
+
+    p#players {
+        text-align: end;
+        margin: 0px;
+        padding-left: 42px;
+        color: grey;
+    }
+
+    div#description {
+
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+
+        p {
+            margin: 0px;
+        }
+
+    }
+
+}
+
+main#selected {
+    border: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.575);
+}
+
+body {
+    background-image: url("./assets/blocks/dirt.png");
+    background-repeat: repeat;
+    background-size: 64px;
+    z-index: 0;
+    overflow: hidden;
+
+}
+
+canvas {
+    display: block;
+    position: absolute;
+    margin: 0px;
+    height: 120%;
+    width: 120%;
+    background-color: #000000d7;
+    z-index: 1;
+}

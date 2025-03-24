@@ -27,3 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Fetch error:', error);
         });
 })
+
+
+const element = document.getElementsByTagName("main")[0]
+element.addEventListener("click", (ev) => {
+    element.id == "selected" ? element.id = "" : element.id = "selected"
+});
