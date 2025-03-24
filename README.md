@@ -10,9 +10,9 @@ Um sistema que monitora em tempo real informações dentro do jogo Minecraft e a
 
 Informações:
 
-Servidor -> Ligado/Desligado, Quantidade de Jogadores, Nome, Descrição, Ping
-Player -> Id, Nome, Vida, Vida Máxima, Vivo/Morto, Idade, último agressor, Olhando para, Fome, Experiência, Gamemode, tamanho da tela do cliente, Item segurado, armadura, posição, dimensão
-Npc -> Id, Nome, Vida, Vida Máxima, Vivo/Morto, Idade, último agressor, Olhando para, posição, dimensão
+Servidor -> Ligado/Desligado, Quantidade de Jogadores, Nome, Descrição, Ping <br>
+Player -> Id, Nome, Vida, Vida Máxima, Vivo/Morto, Idade, último agressor, Olhando para, Fome, Experiência, Gamemode, tamanho da tela do cliente, Item segurado, armadura, posição, dimensão<br>
+Npc -> Id, Nome, Vida, Vida Máxima, Vivo/Morto, Idade, último agressor, Olhando para, posição, dimensão<br>
 
 # Integrantes do Grupo
 
