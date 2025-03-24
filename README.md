@@ -1,8 +1,8 @@
 # Projeto Integrador 3° Período
-Análise e Desenvolvimneto de Sistemas
-Universidade Tuiuti do Paraná
-Professor: Luiz Altamir Correa Junior
-Tema: Monitoramento de Sistemas
+Análise e Desenvolvimneto de Sistemas<br>
+Universidade Tuiuti do Paraná<br>
+Professor: Luiz Altamir Correa Junior<br>
+Tema: Monitoramento de Sistemas<br>
 
 # Esboço de ideia
 
