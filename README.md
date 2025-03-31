@@ -21,7 +21,7 @@ Npc -> Id, Nome, Vida, Vida Máxima, Vivo/Morto, Idade, último agressor, Olhand
 - Audrey Cristhiny Trindade Kochinski ([Audrey2112](https://github.com/Audrey2112))
 - Gabriela Rocca lobo da Costa ([GabRocca](https://github.com/GabRocca))
 - João Gabriel Castro de Oliveira ([Blu-guy](https://github.com/Blu-guy))
-- Luiz Henrique da Graça
+- Luiz Henrique da Graça [c4pluiz1](https://github.com/c4pluiz1)
 - Eduarda Horning Bzunek ([eduardahor](https://github.com/eduardahor))
 - José Otávio Chacorowski Raimundo ([JoseOtavioCR](https://github.com/JoseOtavioCR))
 
