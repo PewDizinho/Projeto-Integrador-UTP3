@@ -1,26 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Pi 3</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Pi 3</title>
 </head>
-
 <body>
-    <canvas id="canvas"></canvas>
-    <main>
-        <img src="../../assets/logo.png" alt="Logo">
-        <p id="name">Minecraft Server</p>
-        <div id="description">
-            <p>Projeto Integrador 3° Período!</p>
-            <p>A Sexta Série</p>
-        </div>
-        <p id="players">3/69</p>
-    </main>
+  <div class="bordaSuperior">
+    <span class="textoBorda">Play Multiplayer</span>
+  </div>
+  <div class="bordaInferior"></div>
+  <canvas id="canvas"></canvas>
+  <main>
+    <div class="icon-wrapper">
+      <img class="server-icon" src="../../assets/6_Serie_Logo.jpg" alt="Logo">
+      <div class="overlay" onclick="window.location.href='../Listagem Players/index.html'"></div>
+      <img class="hover-play" src="../../assets/items/Play.png" alt="Play">
+    </div>
+    <p id="name">Minecraft Server</p>
+    <div id="description">
+      <p>Projeto Integrador 3° Período!</p>
+      <a href="#" class="info-link">&lt;&lt; A SEXTA SÉRIE &gt;&gt;</a>
+    </div>
+    <p id="players">3/69</p>
+  </main>
+
+  <div class="botaozitos">
+    <button id="btn-join">Join Server</button>
+   <button id="btn-direct">Direct Connect</button>
+    <button id="btn-add">Add Server</button>
+  </div>
+
+  <div class="button-bar bottom-buttons">
+            <button id="btn-edit">Edit</button>
+            <button id="btn-delete">Delete</button>
+            <button id="btn-refresh">Refresh</button>
+            <button id="btn-cancel" onclick="window.location.href='../Pagina Inicio/index.html'">Cancel</button>
+    </div>
+
+<!-- Modal de Página Indisponível - Aparecer um quadrado ao apertar -->
+<div id="modal-indisponivel" class="modal hidden">
+  <div class="modal-content">
+    <p>Ops! Parece que os programadores ainda não fizeram essa página</p>
+    <button id="fechar-modal">Fechar</button>
+  </div>
+</div>
+
+  <script src="./script.js"></script>
 </body>
-
-<script src="./script.js"></script>
-
 </html>
