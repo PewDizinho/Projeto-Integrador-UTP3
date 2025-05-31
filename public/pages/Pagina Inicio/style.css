@@ -1,0 +1,103 @@
+@font-face {
+  font-family: 'Minecraftia';
+  src: url('../../assets/fonts/Minecrafter.Reg.ttf') format('truetype'); /*fonte pixelada*/
+}
+
+body {
+  margin: 0;
+  font-family: monospace;
+  background-image: url("../../assets/MineFundo.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /*Da o espaço entre o titulo e o multiplayer*/
+  color: white;
+  padding: 0;
+}
+
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-top: 30px; /* Espaçamento geral do topo */
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.title:hover {
+  filter: brightness(1.20); /*Corzinha ao ir com o mouse*/
+}
+
+.title:hover h1 {
+  color: rgb(182, 180, 180); /*Pintar a sexta serie*/
+}
+
+.title h1 {
+  font-family: 'Minecraftia', sans-serif;
+  font-size: 120px;
+  color: white;
+  text-shadow: 8px 8px #3e3e3e; /* sombra para imitar 3D */
+  text-align: center;
+}
+
+.title span {
+  font-family: 'Minecraftia', sans-serif;
+  font-size: 1.75vw ;
+  color: #02abff;
+  position: absolute;
+  top: 220px; /* esse e o de baixo estou alinhando para o PI EDITION ficar em baixo do titulo */
+  left: 50%;
+  transform: translateX(-50%);
+  text-shadow: 2px 2px #00101c;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 200px; /* espaçamento inferior */
+}
+
+
+.menu button {
+  font-family: 'Minecraftia', monospace; /* Fonte */
+  padding: 30px 110px;
+  border-radius: 8px;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.menu button:hover { /*Ao botar o mouse em cima ele da o efeito*/
+  transform: scale(1.30);
+  filter: brightness(1.15);
+}
+
+
+
+.bottom-buttons {
+  display: flex;
+  margin-top: 20px;
+  gap: 10px;
+  padding: 30px 50px;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+footer {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-size: 20px;
+  text-shadow: 1px 1px 1px black;
+}
+
+.acima { 
+  margin-bottom: 80px; /* sobe o botão multiplayer separando do resto */
+}
+

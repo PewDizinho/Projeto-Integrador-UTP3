@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+  <html lang="pt-br">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Listagens de Players Minecraft</title>
+      <link rel="icon" href="data:,">
+      <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="style.css">
+    </head>
+
+<body>
+ <div class="main-container">
+   <div class="status-title">Monitoramento - <span id="player-count">0 players</span></div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="window.location.href='../Listagem Players/index.html'">Players</button>
+    <button class="tab" onclick="window.location.href='../landing/index.html'">Servidor</button> 
+    <button class="tab" onclick="window.location.href='npcs.html'">NPCS</button>
+  </div>
+ 
+  <div class="panel">
+      <div class="search-box">
+        <img src="../../assets/items/magnifying-glass-Mine.png" class="icon" alt="Lupa">
+        <input type="text" id="search" placeholder="Search...">
+</div>
+
+<div id="lista-players" class="players-container">
+    <!-- Jogadores devem aparecerR aqui -->
+  </div>
+  <script src="script.js"></script>
+
+</body>
+  </html>

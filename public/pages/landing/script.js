@@ -1,6 +1,5 @@
-
-
 document.addEventListener('DOMContentLoaded', () => {
+
     fetch('http://127.0.0.1:6060/players')
         .then(response => {
             if (!response.ok) {
@@ -11,25 +10,47 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             for (let player of data) {
                 console.log(player.EntityInfo.name)
-                console.log(player)// Player
-                //Pegar essa info do player e jogar dentro do html
-                const card = document.createElement("div");//cria uma div
-                card.className = "card"; //adiciona uma classe a div
-                const name = document.createElement("h1"); //Cria um h1
-                name.innerText = player.EntityInfo.name; //Adiciona o nome do player no texto, usar de referencia /public/db/Player/pew.json
-
-                card.appendChild(name)//Adiciona o nome dentro da div
-                document.getElementById("playground").appendChild(card)//adiciona a div (com o nome dentro) dentro da div que já ta no html do site /public/index.html
-                //https://mc-heads.net/ <--- pegar cabeças de players
+                console.log(player)
+                const card = document.createElement("div");
+                card.className = "card";
+                const name = document.createElement("h1");
+                name.innerText = player.EntityInfo.name;
+                card.appendChild(name)
+                document.getElementById("playground").appendChild(card)
             }
         })
         .catch(error => {
             console.error('Fetch error:', error);
         });
-})
 
+    const modal = document.getElementById('modal-indisponivel');
+    const fecharModal = document.getElementById('fechar-modal');
 
-const element = document.getElementsByTagName("main")[0]
-element.addEventListener("click", (ev) => {
-    element.id == "selected" ? element.id = "" : element.id = "selected"
+    const botoesComModal = [
+        'btn-join',
+        'btn-direct',
+        'btn-add',
+        'btn-edit',
+        'btn-delete',
+        'btn-refresh'
+    ];
+
+    botoesComModal.forEach(id => {
+        const botao = document.getElementById(id);
+        if (botao) {
+            botao.addEventListener('click', () => {
+                modal.classList.remove('hidden');
+            });
+        }
+    });
+
+    fecharModal.addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
+
+    const element = document.getElementsByTagName("main")[0]
+    element.addEventListener("click", (ev) => {
+       element.classList.toggle("selected");
+
+    });
 });

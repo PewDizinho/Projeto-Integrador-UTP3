@@ -15,7 +15,7 @@ app.get("/", (req, res) => { //Rota principal, ou seja, no 192.168.1.15:6060/ el
 });
 
 
-
+//162.168.0.1:6060/players
 app.post("/api", (req, res) => {//Quando eu dou um POST ou seja, envio informações para o site no 192.168.1.15:6060/api 
     let body = "";
     req.on("data", chunk => {
