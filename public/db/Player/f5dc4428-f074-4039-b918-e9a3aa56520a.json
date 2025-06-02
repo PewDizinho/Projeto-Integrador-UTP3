@@ -1,0 +1,35 @@
+{
+  "Type": "Player",
+  "Evento": "tick",
+  "EntityInfo": {
+    "id": "f5dc4428-f074-4039-b918-e9a3aa56520a",
+    "name": "lhztheking",
+    "health": 20,
+    "maxHealth": 20,
+    "isAlive": true,
+    "age": 1490,
+    "lastAttacker": "None",
+    "lookingAt": "minecraft:stone",
+    "PlayerInfo": {
+      "hunger": 20,
+      "exp": 0,
+      "gamemode": 1,
+      "screenSize": "1009x1920"
+    },
+    "Inventory": {
+      "heldItem": "minecraft:stone",
+      "armor": {
+        "head": "Air",
+        "chest": "Air",
+        "legs": "Air",
+        "feet": "Air"
+      }
+    },
+    "position": {
+      "dimension": 0,
+      "x": 332.3596823892275,
+      "y": 18.0155550727022,
+      "z": -663.7187093997203
+    }
+  }
+}
