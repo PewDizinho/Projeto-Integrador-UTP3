@@ -110,7 +110,7 @@ border-color: #000000;
   font-style: normal;
 }
 
-.player-card {
+.Npc-card {
   background: #2e2e2e;
   border: 2px solid #555;
   border-radius: 8px;
@@ -122,13 +122,13 @@ border-color: #000000;
   font-family: 'Minecraftia', monospace;
 }
 
-.player-icon {
+.Npc-icon {
   width:32px;
   height: 32px;
   margin-right: 16px;
 }
 
-.player-name {
+.Npc-name {
   font-size: 12px;
 }
 

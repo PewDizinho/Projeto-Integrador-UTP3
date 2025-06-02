@@ -1,4 +1,4 @@
-@font-face { /* Aplica a fonte Minecraftia em vários elementos */
+@font-face {    /* Aplica a fonte Minecraftia em vários elementos */
   font-family: 'Minecraftia';
     src: url('../../assets/fonts/minecraftia.ttf')
 }
@@ -17,29 +17,31 @@ body {
   align-items: center;
   height: 100vh;
 }
+
 .menu {
   background-color: rgba(50, 50, 50, 0.9);
-  padding: 200px 200px;
+  padding: 10px;
   border: 4px solid #aaa;
   text-align: center;
   color: white;
-  min-width: 400px;
+  width: 80%;
+  max-width: 600px;
+  box-sizing: border-box;
 }
 
-.menu h1 {
-  margin-bottom: 20px;
-  font-size: 2vw;
-  position: absolute; /*Está sendo usado para posicionar a borda, mais especificamente no topo depois com o uso do "top"*/
-  top: 10%;
-  right: 47%;
 
+.menu h1 {
+  margin-bottom: 30px;
+  font-size: 2rem; /* Tamanho mais consistente */
+  position: static; /* ou simplesmente remova a linha position */
 }
 
 .options {
   font-family: 'Minecraftia';
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(2, 1fr); /*Esta linha faz com que fique separado 2 por 2 os nomes*/
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
 }
 
 button {

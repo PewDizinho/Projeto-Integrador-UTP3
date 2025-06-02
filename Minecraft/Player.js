@@ -1,6 +1,6 @@
 
 function sendToServer(payload) {
-    var url = "http://192.168.1.105:6060/api"; //<--- Ip do servidor node
+    var url = "http://localhost:6060/api"; //<--- Ip do servidor node
     API.postJsonHTTP(url, JSON.stringify(payload));//<--- Função que envia o json para o servidor
     return "[Enviado]";
 }
