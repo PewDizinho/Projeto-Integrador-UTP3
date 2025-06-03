@@ -65,6 +65,7 @@ border-color: #000000;
 }
  
 .panel { /* Painel/quadro principal (central)*/
+  position: relative;
   background:rgb(63, 62, 62);
   border: 15px solid #b4b4b4;
   padding: 40px 20px;
@@ -110,8 +111,6 @@ border-color: #000000;
   font-style: normal;
 }
 
-<<<<<<< HEAD
-=======
 .voltar-btn { /* Botão de voltar*/
   position: absolute;
   margin-top: -35px;
@@ -134,8 +133,7 @@ border-color: #000000;
   transform: scale(1.05);
 }
 
->>>>>>> upstream/main
-.player-card {
+.Npc-card {
   background: #2e2e2e;
   border: 2px solid #555;
   border-radius: 8px;
@@ -147,19 +145,13 @@ border-color: #000000;
   font-family: 'Minecraftia', monospace;
 }
 
-.player-icon {
-<<<<<<< HEAD
-  width: 32px;
-  height: 32px;
-  margin-right: 12px;
-=======
+.Npc-icon {
   width:32px;
   height: 32px;
   margin-right: 16px;
->>>>>>> upstream/main
 }
 
-.player-name {
+.Npc-name {
   font-size: 12px;
 }
 

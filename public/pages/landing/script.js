@@ -53,4 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
        element.classList.toggle("selected");
 
     });
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> upstream/main
