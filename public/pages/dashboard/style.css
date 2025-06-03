@@ -4,11 +4,20 @@
   src: url("../../assets/fonts/minecraftia.ttf");
 }
 
-body {
+* {
+  font-family: 'Minecraftia', sans-serif;
+  color: white;
+  text-shadow: 1px 1px 1px black;
   margin: 0;
   padding: 0;
-  background-image:  url("../../assets/gui/title/background/panorama_5.png"); 
+  box-sizing: border-box;
+}
+
+body {
+  background-image:  url("../../assets/FundoMine.jpg"); /* Imagem de fundo */
   background-size: cover; /* Cobre toda a tela */
+  height: 100vh; /* Altura total da tela */
+  overflow: hidden; /* Remove barras de rolagem */
 }
 
 .status-title {

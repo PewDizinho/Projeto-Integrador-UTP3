@@ -1,81 +1,312 @@
+/* Define uma fonte personalizada chamada 'Minecraftia' */
 @font-face {
-    font-family: 'Minecraftia';
-    src: url('../../assets/fonts/minecraftia.ttf')
+  font-family: 'Minecraftia';
+  src: url('../../assets/fonts/minecraftia.ttf');
 }
 
+/* Estilo global para todos os elementos da página */
 * {
-    font-family: 'Minecraftia', sans-serif;
-    color: white;
-    text-shadow: 1px 1px 1px black;
-    margin: 0px;
+  font-family: 'Minecraftia', sans-serif;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-main {
-    border: 2px solid transparent;
-    user-select: none;
-    padding: 10px;
-    cursor: pointer;
-    position: absolute;
-    z-index: 2;
-    margin: 0px;
-    display: flex;
-    width: 700px;
-    top: 25%;
-    left: 25%;
-    justify-content: start;
-
-    img {
-        width: 124px;
-        height: 124px;
-    }
-
-    p#name {
-        margin: 0px 5px;
-    }
-
-    p#players {
-        text-align: end;
-        margin: 0px;
-        padding-left: 42px;
-        color: grey;
-    }
-
-    div#description {
-
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        justify-content: center;
-
-        p {
-            margin: 0px;
-        }
-
-    }
-
-}
-
-main#selected {
-    border: 2px solid white;
-    background-color: rgba(0, 0, 0, 0.575);
-}
-
+/* Estilo do corpo da página */
 body {
-    background-image: url("../../assets/blocks/dirt.png");
-    background-repeat: repeat;
-    background-size: 64px;
-    z-index: 0;
-    overflow: hidden;
-
+  background-image: url("../../assets/blocks/dirt.png");
+  background-repeat: repeat;
+  background-size: 64px;
+  overflow: hidden;
+  height: 100vh;
 }
 
+/* Barras superior e inferior com textura e sombra */
+.bordaSuperior,
+.bordaInferior {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url('../../assets/blocks/dirt.png');
+  background-repeat: repeat-x;
+  background-size: contain;
+  z-index: 3;
+  image-rendering: pixelated;
+}
+
+/* Posição e altura da borda superior */
+.bordaSuperior {
+  top: 0;
+  height: 50px;
+}
+
+/* Posição e altura da borda inferior */
+.bordaInferior {
+  bottom: 0;
+  height: 100px;
+}
+
+/* Texto centralizado dentro da borda */
+.textoBorda {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  z-index: 5;
+  image-rendering: pixelated;
+}
+
+/* Container principal da interface */
+main {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  z-index: 2;
+  padding: 1rem;
+  border: 2px solid transparent;
+  background-color: transparent;
+}
+
+/* Quando o servidor está selecionado, muda a borda e o fundo */
+main.selected { 
+  border: 2px solid white;
+  background-color: rgba(0, 0, 0, 0.55);
+}
+
+
+/* Agrupa imagem e nome do servidor lado a lado */
+.server-info {
+  display: flex;
+  align-items: flex-start; /* Alinha pelo topo */
+  gap: 10px; /* Espaço entre imagem e texto */
+}
+
+/* Wrapper do ícone do servidor */
+.icon-wrapper {
+  position: relative;
+  width: 120px; /* reduzido de 140px */
+  height: 120px;
+  flex-shrink: 0;
+  margin-right: 1rem;
+  cursor: pointer; /* cursos vira uma maozinha quando se passa por cima da imagem*/
+  transition: transform 0.2s ease;
+}
+
+/* Ícone do servidor */
+.server-icon {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  image-rendering: pixelated;
+}
+
+/* Camada escura e camada de destaque sobre o ícone */
+.overlay,
+.hover-play {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hover-play {
+  background-color: rgba(255, 238, 238, 0.4);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Mostra os overlays ao passar o mouse */
+.icon-wrapper:hover .overlay,
+.icon-wrapper:hover .hover-play {
+  display: block;
+}
+
+/* Aumenta o ícone ao passar o mouse */
+.icon-wrapper:hover {
+  transform: scale(1.15);
+}
+
+/* Nome do servidor alinhado ao topo da imagem */
+#name {
+  margin: 2px 0 0 0;
+  align-self: flex-start;
+  font-size: 16px;
+  line-height: 1.1;
+}
+
+/* Descrição do servidor */
+#description {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  margin: 12px;
+}
+
+/* Quantidade de jogadores */
+#players {
+  position: absolute;
+  top: 5px;
+  right: 16px;
+  font-size: 14px;
+  color: grey;
+}
+
+/* Link de informação do servidor */
+.info-link {
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  text-shadow: 1px 1px 1px black;
+}
+
+/* Efeito ao passar o mouse no link */
+.info-link:hover {
+  color: #ff0000;
+  text-decoration: underline;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+/* Container dos botões principais */
+.botaozitos {
+  position: absolute;
+  bottom: 55px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  z-index: 4;
+}
+
+/* Estilo dos botões */
+.botaozitos button {
+  font-family: 'Minecraftia', sans-serif;
+  padding: 0.5px 8px;
+  border: 2px solid #000000;
+  background-color: #505050;
+  color: rgb(255, 255, 255);
+  text-shadow: none;
+  box-shadow: inset -3px -3px 0 #7c7c7c, inset 3px 3px 0 #383737;
+  cursor: pointer;
+  transition: all 0.1s;
+  transition: transform 0.1s ease;
+}
+
+/* Efeito ao passar o mouse nos botões */
+.botaozitos button:hover {
+  background-color: #969393;
+  box-shadow: inset -2px -2px 0 #777;
+  transform: scale(1.05);
+}
+
+/* Outra barra de botões, mais abaixo */
+.button-bar {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  z-index: 4;
+}
+
+/* Estilo dos botões da barra inferior */
+.button-bar button {
+  font-family: 'Minecraftia', sans-serif;
+  padding: 0.5px 10px;
+  border: 2px solid #000000;
+  background-color: #303030;
+  color: rgb(255, 255, 255);
+  text-shadow: none;
+  box-shadow: inset -3px -3px 0 #4b4a4a, inset 3px 3px 0 #202020;
+  cursor: pointer;
+  transition: all 0.1s;
+  transition: transform 0.1s ease;
+}
+
+/* Efeito ao passar o mouse nos botões inferiores */
+.button-bar button:hover {
+  background-color: #969393;
+  box-shadow: inset -2px -2px 0 #777;
+  transform: scale(1.05);
+}
+
+/* Classe para definir posição das barras de botões (de cima e de baixo) */
+.top-buttons {
+  bottom: 45px;
+}
+
+.bottom-buttons {
+  bottom: 5px;
+}
+
+/* Tela de fundo estilo escurecido */
 canvas {
-    display: block;
-    position: absolute;
-    margin: 0px;
-    height: 120%;
-    width: 120%;
-    background-color: #000000d7;
-    z-index: 1;
+  position: absolute;
+  width: 120vw;
+  height: 120vh;
+  background-color: #000000d7;
+  z-index: 1;
+}
+
+/* Modal de erro */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #1e1e1e;
+  color: #fff;
+  padding: 30px;
+  border: 2px solid #888;
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Minecraftia', sans-serif;
+  max-width: 400px;
+}
+
+.modal-content button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #333;
+  color: #fff;
+  border: 2px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background: #555;
+}
+
+.hidden {
+  display: none;
 }
