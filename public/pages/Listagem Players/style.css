@@ -110,6 +110,28 @@ border-color: #000000;
   font-style: normal;
 }
 
+.voltar-btn { /* Botão de voltar*/
+  position: absolute;
+  margin-top: -35px;
+  margin-left: -15px;
+  background: #555;
+  color: white;
+  font-family: 'Minecraftia', monospace;
+  font-size: 12px;
+  border: 2px solid #aaa;
+  border-radius: 6px;
+  padding: 0.5px 0.5px;
+  cursor: pointer;
+  z-index: 0;
+  box-shadow: 2px 2px 0 #222;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.voltar-btn:hover {
+  background: #777;
+  transform: scale(1.05);
+}
+
 .player-card {
   background: #2e2e2e;
   border: 2px solid #555;
