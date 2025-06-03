@@ -1,11 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard do Servidor Minecraft</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        @font-face {
+            font-family: 'Minecraftia';
+            src: url('../../assets/fonts/Minecrafter.Reg.ttf') format('truetype');
+        }
+
+        body {
+            font-family: 'Minecraftia', monospace, Arial, sans-serif;
+            background-image: url("../../assets/MineFundo.jpg");
+            background-size: cover;
+            background-position: center;
+            color: #ecf0f1;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dashboard {
+            max-width: 800px;
+            width: 90%;
+            margin: 50px auto;
+            padding: 30px 24px;
+            background-color: rgba(52, 73, 94, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 4px 16px #000a;
+            border: 4px solid #228b22;
+        }
+
+        .dashboard h1 {
+            text-align: center;
+            margin-bottom: 28px;
+            font-size: 2.5rem;
+            color: #02abff;
+            text-shadow: 2px 2px #222, 0 0 8px #02abff;
+            font-family: 'Minecraftia', monospace, Arial, sans-serif;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+            margin: 12px 0;
+            padding: 14px 18px;
+            background-color: #222c;
+            border-radius: 6px;
+            font-size: 1.15rem;
+            box-shadow: 1px 1px 6px #0006;
+            border-left: 6px solid #228b22;
+        }
+
+        .info span:first-child {
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px #000;
+        }
+
+        .info span:last-child {
+            color: #02abff;
+            text-shadow: 1px 1px #000;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="dashboard">
+        <h1>Dashboard do Servidor Minecraft</h1>
+        <div class="info">
+            <span>CPU:</span>
+            <span id="cpu">13.1%</span>
+        </div>
+        <div class="info">
+            <span>RAM:</span>
+            <span id="ram">3.1GB / 13.3GB (31.3%)</span>
+        </div>
+        <div class="info">
+            <span>DISCO:</span>
+            <span id="disco">131.1GB / 331.3GB</span>
+        </div>
+        <div class="info">
+            <span>JOGADORES:</span>
+            <span>10/20 (10 jogadores online)</span>
+        </div>
+        <div class="info">
+            <span>TEMPO DE JOGO:</span>
+            <span>5 dias, 3 horas, 15 minutos</span>
+        </div>
+        <div class="info">
+            <span>UPTIME:</span>
+            <span id="uptime">13h 31m</span>
+        </div>
+        <div class="info">
+            <span>VERSÃO:</span>
+            <span>1.20.2</span>
+        </div>
+        <div class="info">
+            <span>MODS:</span>
+            <span id="mods">5 mods instalados</span>
+        </div>
+        <div class="info">
+            <span>PLUGINS:</span>
+            <span id="plugins">3 plugins instalados</span>
+        </div>
+    </div>
+    <script>
+        async function atualizarInfo() {
+            const res = await fetch('/api/serverinfo');
+            const data = await res.json();
+
+            document.getElementById('cpu').innerText = `${data.cpu}%`;
+            document.getElementById('ram').innerText = `${data.ramUsed}GB / ${data.ramTotal}GB (${data.ram}%)`;
+            document.getElementById('disco').innerText = `${data.diskUsed}GB / ${data.diskTotal}GB`;
+            document.getElementById('uptime').innerText = `${Math.floor(data.uptime / 3600)}h ${(Math.floor(data.uptime / 60) % 60)}m`;
+        }
+        async function atualizarModsPlugins() {
+            const res = await fetch('/api/mcinfo');
+            const data = await res.json();
+            document.getElementById('mods').innerText = `${data.modsCount} mods instalados`;
+            document.getElementById('plugins').innerText = `${data.pluginsCount} plugins instalados`;
+        }
+        atualizarInfo();
+        atualizarModsPlugins();
+        setInterval(atualizarInfo, 5000);
+        setInterval(atualizarModsPlugins, 10000);
+    </script>
 </body>
+
 </html>

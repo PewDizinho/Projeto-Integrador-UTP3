@@ -1,6 +1,18 @@
 {
+  "type": "module",
+  "name": "projeto-integrador-utp3",
+  "version": "1.0.0",
   "dependencies": {
     "express": "^4.21.2",
-    "multer": "^1.4.5-lts.2"
-  }
+    "multer": "^1.4.5-lts.2",
+    "systeminformation": "^5.27.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "description": "Análise e Desenvolvimneto de Sistemas<br>\r Universidade Tuiuti do Paraná<br>\r Professor: Luiz Altamir Correa Junior<br>\r Tema: Monitoramento de Sistemas<br>",
+  "main": "server-old.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
