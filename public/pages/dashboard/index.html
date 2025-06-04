@@ -89,7 +89,7 @@
         </div>
         <div class="info">
             <span>JOGADORES:</span>
-            <span>10/20 (10 jogadores online)</span>
+            <span id="jogadores">10/20 (10 jogadores online)</span>
         </div>
         <div class="info">
             <span>TEMPO DE JOGO:</span>
@@ -121,13 +121,16 @@
             document.getElementById('ram').innerText = `${data.ramUsed}GB / ${data.ramTotal}GB (${data.ram}%)`;
             document.getElementById('disco').innerText = `${data.diskUsed}GB / ${data.diskTotal}GB`;
             document.getElementById('uptime').innerText = `${Math.floor(data.uptime / 3600)}h ${(Math.floor(data.uptime / 60) % 60)}m`;
+            document.getElementById('jogadores').innerText = `${data.playersOnline} jogadores online`;
         }
+
         async function atualizarModsPlugins() {
             const res = await fetch('/api/mcinfo');
             const data = await res.json();
             document.getElementById('mods').innerText = `${data.modsCount} mods instalados`;
             document.getElementById('plugins').innerText = `${data.pluginsCount} plugins instalados`;
         }
+
         atualizarInfo();
         atualizarModsPlugins();
         setInterval(atualizarInfo, 5000);

@@ -106,62 +106,37 @@ app.get('/go', (req, res) => {
 
 app.get('/api/serverinfo', async (req, res) => {
     try {
-        // Informações do sistema
         const cpu = await si.currentLoad();
         const mem = await si.mem();
-        const disk = await si.fsSize();
+        const disks = await si.fsSize();
         const uptime = si.time().uptime;
 
-        // Informações do processo Java (Minecraft)
-        // Pega o PID do processo Java
-        exec("pgrep -o java", (err, stdout) => {
-            let javaInfo = { cpu: 0, mem: 0 };
-            if (!err && stdout.trim()) {
-                const pid = stdout.trim();
-                // Pega uso de CPU e memória do processo Java
-                exec(`ps -p ${pid} -o %cpu,%mem --no-headers`, (err2, stdout2) => {
-                    if (!err2 && stdout2.trim()) {
-                        const [cpuJava, memJava] = stdout2.trim().split(/\s+/);
-                        javaInfo = { cpu: cpuJava, mem: memJava };
-                    }
-                    // Pega jogadores online lendo o arquivo server.properties ou logs (ajuste conforme seu servidor)
-                    // Exemplo para servidores que usam o arquivo "usercache.json":
-                    exec("cat /caminho/do/seu/minecraft/server/usercache.json | wc -l", (err3, stdout3) => {
-                        let playersOnline = stdout3 ? parseInt(stdout3.trim()) : 0;
-                        // Monte a resposta
-                        res.json({
-                            cpu: cpu.currentLoad.toFixed(1),
-                            ram: ((mem.active / mem.total) * 100).toFixed(1),
-                            ramTotal: (mem.total / (1024 ** 3)).toFixed(1),
-                            ramUsed: (mem.active / (1024 ** 3)).toFixed(1),
-                            diskTotal: (disk[0].size / (1024 ** 3)).toFixed(1),
-                            diskUsed: (disk[0].used / (1024 ** 3)).toFixed(1),
-                            uptime: uptime,
-                            java: javaInfo,
-                            playersOnline: playersOnline // ajuste conforme sua lógica
-                        });
-                    });
-                });
-            } else {
-                // Se não encontrou o processo Java
-                res.json({
-                    cpu: cpu.currentLoad.toFixed(1),
-                    ram: ((mem.active / mem.total) * 100).toFixed(1),
-                    ramTotal: (mem.total / (1024 ** 3)).toFixed(1),
-                    ramUsed: (mem.active / (1024 ** 3)).toFixed(1),
-                    diskTotal: (disk[0].size / (1024 ** 3)).toFixed(1),
-                    diskUsed: (disk[0].used / (1024 ** 3)).toFixed(1),
-                    uptime: uptime,
-                    java: { cpu: 0, mem: 0 },
-                    playersOnline: 0
-                });
-            }
+        // Filtrar o disco montado em "/"
+        const rootDisk = disks.find(disk => disk.mount === '/');
+        let diskTotal = 0;
+        let diskUsed = 0;
+
+        if (rootDisk) {
+            diskTotal = (rootDisk.size / (1024 ** 3)).toFixed(1); // Total em GB
+            diskUsed = (rootDisk.used / (1024 ** 3)).toFixed(1); // Usado em GB
+        }
+
+        res.json({
+            cpu: cpu.currentLoad.toFixed(1),
+            ram: ((mem.active / mem.total) * 100).toFixed(1),
+            ramTotal: (mem.total / (1024 ** 3)).toFixed(1),
+            ramUsed: (mem.active / (1024 ** 3)).toFixed(1),
+            diskTotal: diskTotal,
+            diskUsed: diskUsed,
+            uptime: uptime
         });
     } catch (err) {
+        console.error("Erro ao obter informações do servidor:", err);
         res.status(500).json({ error: "Erro ao obter informações do servidor." });
     }
 });
 
-app.listen(port, () => {
-    console.log("Funcionando");
-})
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Servidor rodando na porta ${port}`);
+});
+
