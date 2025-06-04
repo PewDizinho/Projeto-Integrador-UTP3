@@ -7,9 +7,9 @@
     "health": 20,
     "maxHealth": 20,
     "isAlive": true,
-    "age": 1490,
+    "age": 10220,
     "lastAttacker": "None",
-    "lookingAt": "minecraft:stone",
+    "lookingAt": "Air",
     "PlayerInfo": {
       "hunger": 20,
       "exp": 0,
@@ -17,7 +17,7 @@
       "screenSize": "1009x1920"
     },
     "Inventory": {
-      "heldItem": "minecraft:stone",
+      "heldItem": "customnpcs:npcScripter",
       "armor": {
         "head": "Air",
         "chest": "Air",
@@ -27,9 +27,9 @@
     },
     "position": {
       "dimension": 0,
-      "x": 332.3596823892275,
-      "y": 18.0155550727022,
-      "z": -663.7187093997203
+      "x": 301.3920390139258,
+      "y": 17,
+      "z": -670.3558961830431
     }
   }
 }

@@ -14,8 +14,9 @@ async function carregarNPCs() {
       div.className = "Npc-card";
 
       div.innerHTML = `
-        <img src="https://mc-heads.net/avatar/${nome}" alt="" class="Npc-icon" />
-        <span class="Npc-name">${nome}</span>`;
+  <img src="https://mc-heads.net/avatar/${nome}" alt="" class="Npc-icon" onclick="window.location.href='../DashNPC/index.html'" />
+  <span class="Npc-name">${nome}</span>`;
+
       
       container.appendChild(div);
     });

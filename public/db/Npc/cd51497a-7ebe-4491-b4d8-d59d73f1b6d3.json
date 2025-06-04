@@ -7,9 +7,9 @@
     "health": 20,
     "maxHealth": 20,
     "isAlive": true,
-    "age": 21242,
+    "age": 54032,
     "lastAttacker": "None",
-    "lookingAt": "minecraft:grass",
+    "lookingAt": "minecraft:planks",
     "position": {
       "dimension": 0,
       "x": 313.5,
