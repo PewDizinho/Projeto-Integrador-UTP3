@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+ 
     fetch('http://127.0.0.1:6060/players')
         .then(response => {
             if (!response.ok) {
@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => {
             console.error('Fetch error:', error);
         });
-
+ 
     const modal = document.getElementById('modal-indisponivel');
     const fecharModal = document.getElementById('fechar-modal');
-
+ 
     const botoesComModal = [
         'btn-join',
         'btn-direct',
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'btn-delete',
         'btn-refresh'
     ];
-
+ 
     botoesComModal.forEach(id => {
         const botao = document.getElementById(id);
         if (botao) {
@@ -43,14 +43,39 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
-
+ 
     fecharModal.addEventListener('click', () => {
         modal.classList.add('hidden');
     });
-
-    const element = document.getElementsByTagName("main")[0]
-    element.addEventListener("click", (ev) => {
-       element.classList.toggle("selected");
-
+ 
+    // Evento para o main do Minecraft (primeiro main)
+    const minecraftMain = document.getElementsByTagName("main")[0];
+    minecraftMain.addEventListener("click", () => {
+        minecraftMain.classList.toggle("selected");
     });
+ 
+    // Evento para o main do Miku (supondo que tenha id="main-miku")
+    const mikuMain = document.getElementById("main-miku");
+    if (mikuMain) {
+        mikuMain.addEventListener("click", () => {
+            mikuMain.classList.toggle("selected");
+        });
+    }
+});
+ 
+// Modal de servidor cheio (Miku)
+const modalCheio = document.getElementById('modal-servidor-cheio');
+const fecharModalCheio = document.getElementById('fechar-modal-cheio');
+ 
+// Adiciona o clique na imagem do Miku
+const mikuIcon = document.querySelector('.server-miku-icon');
+ 
+if (mikuIcon) {
+    mikuIcon.addEventListener('click', () => {
+        modalCheio.classList.remove('hidden');
+    });
+}
+ 
+fecharModalCheio.addEventListener('click', () => {
+    modalCheio.classList.add('hidden');
 });
