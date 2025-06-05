@@ -110,8 +110,6 @@ border-color: #000000;
   font-style: normal;
 }
 
-<<<<<<< HEAD
-=======
 .voltar-btn { /* Botão de voltar*/
   position: absolute;
   margin-top: -35px;
@@ -134,7 +132,6 @@ border-color: #000000;
   transform: scale(1.05);
 }
 
->>>>>>> upstream/main
 .player-card {
   background: #2e2e2e;
   border: 2px solid #555;
@@ -148,15 +145,9 @@ border-color: #000000;
 }
 
 .player-icon {
-<<<<<<< HEAD
-  width: 32px;
-  height: 32px;
-  margin-right: 12px;
-=======
   width:32px;
   height: 32px;
   margin-right: 16px;
->>>>>>> upstream/main
 }
 
 .player-name {

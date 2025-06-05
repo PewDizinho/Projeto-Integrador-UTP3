@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+  <html lang="pt-br">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Dashboard Players</title>
+      <link rel="icon" href="data:,">
+      <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+      <div class="main-container">
+        <div class="status-title">Player</div>
+      </div>
+      <div class="tabs">
+        <button class="tab" onclick="window.location.href='../landing/index.html'">Servidor</button> 
+        <button class="tab" onclick="window.location.href='npcs.html'">NPCS</button>
+      </div>
+      
+      
+      <div class="player-stats">
+        <div class="player-skin">
+       <img id ="player-skin-image" src="/public/assets/skin-paulo.png" alt="Player Skin">
+       </div>
+        <div class="dados">
+            <h1 id="player-id">Id: </h1>
+            <h1 id="player-nickname">Nickname: </h1>
+            <h1 id="player-life">Vida: </h1>
+            <h1 id="player-isalive">Vivo/Morto: </h1>
+            <h1 id="player-age">Dias no servidor: </h1>
+            <h1 id="player-lastattacker">Último agressor: </h1>
+            <h1 id="player-lookingat">Olhando para: </h1>
+            <h1 id="player-hunger">Fome: </h1>
+            <h1 id="player-experience">Nível de experiência: </h1>
+            <h1 id="player-gamemode">Gamemode: </h1>
+            <h1 id="player-screen-size">Resolução: </h1>
+            <h1 id="player-item"></h1>
+            <h1 id="player-armor"></h1>
+            <h1 id="player-position"></h1>
+            <h1 id="player-dimension"></h1>
+          </div>
+           <!-- Id, Nome, Vida, Vida Máxima, Vivo/Morto, Idade, último agressor,
+             Olhando para, Fome, Experiência, Gamemode, tamanho da tela do 
+             cliente, Item segurado, armadura, posição, dimensão -->
+          </div>
+        </div>
+        
+      <div id="lista-players" class="players-container">
+        <!-- Jogadores devem aparecer aqui -->
+      </div>
+      
+      <script src="script.js"></script>
+    </body>
+  </html>
