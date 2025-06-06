@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'Minecraftia';
-  src: url('../../assets/fonts/Minecrafter.Reg.ttf') format('truetype'); /*fonte pixelada*/
+  src: url('../../assets/fonts/Minecrafter.Reg.ttf') format('truetype'); /*fonte pixelada e importada*/
 }
 
-body {
+body { /* Estiliza o corpo da página */
   margin: 0;
   font-family: monospace;
   background-image: url("../../assets/MineFundo.jpg");
@@ -13,13 +13,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /*Da o espaço entre o titulo e o multiplayer*/
+  justify-content: space-between; /* Dá o espaço entre o titulo e o multiplayer */
   color: white;
   padding: 0;
 }
 
-
-.title {
+.title { /* Título principal */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,14 +29,14 @@ body {
 }
 
 .title:hover {
-  filter: brightness(1.20); /*Corzinha ao ir com o mouse*/
+  filter: brightness(1.20); /* Corzinha de fundo ao passar com o mouse*/
 }
 
 .title:hover h1 {
-  color: rgb(182, 180, 180); /*Pintar a sexta serie*/
+  color: rgb(182, 180, 180); /* Pinta a sexta serie */
 }
 
-.title h1 {
+.title h1 { /* Estilo do texto do título */
   font-family: 'Minecraftia', sans-serif;
   font-size: 120px;
   color: white;
@@ -56,13 +55,12 @@ body {
   text-shadow: 2px 2px #00101c;
 }
 
-.menu {
+.menu { /* Menu de botões */
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 200px; /* espaçamento inferior */
 }
-
 
 .menu button {
   font-family: 'Minecraftia', monospace; /* Fonte */
@@ -78,9 +76,7 @@ body {
   filter: brightness(1.15);
 }
 
-
-
-.bottom-buttons {
+.bottom-buttons { /* Botões inferiores */
   display: flex;
   margin-top: 20px;
   gap: 10px;
@@ -89,7 +85,7 @@ body {
   font-size: 18px;
 }
 
-footer {
+footer { /* Rodapé da página */
   position: absolute;
   left: 10px;
   bottom: 10px;
@@ -100,4 +96,3 @@ footer {
 .acima { 
   margin-bottom: 80px; /* sobe o botão multiplayer separando do resto */
 }
-
