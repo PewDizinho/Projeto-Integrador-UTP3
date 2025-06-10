@@ -1,3 +1,25 @@
+function sendCommand() {
+  const input = document.getElementById("console-input");
+  const commandText = input.value.trim();
+  if (commandText) {
+    fetch("http://localhost:6060/createCommands", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        command: commandText,
+        executed: false
+      })
+    }).then(() => {
+      input.value = "";
+    }).catch(err => {
+      console.error("Erro ao enviar comando:", err);
+      input.value = "";
+    });
+  }
+}
+
 async function carregarServer() {
   try {
     const response = await fetch("http://localhost:6060/world");

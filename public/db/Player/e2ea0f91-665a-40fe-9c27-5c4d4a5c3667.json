@@ -7,13 +7,13 @@
     "health": 20,
     "maxHealth": 20,
     "isAlive": true,
-    "age": 97730,
+    "age": 108760,
     "lastAttacker": "None",
     "lookingAt": "minecraft:grass",
     "PlayerInfo": {
       "hunger": 20,
       "exp": 0,
-      "gamemode": 1,
+      "gamemode": 0,
       "screenSize": "480x854"
     },
     "Inventory": {

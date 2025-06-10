@@ -193,6 +193,11 @@ app.get("/commands", (req, res) => {
 
 })
 app.post("/commandsExec", (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Content-Type", "text/plain");
+
     let body = "";
     req.on("data", chunk => {
         body += chunk.toString();
@@ -214,6 +219,37 @@ app.post("/commandsExec", (req, res) => {
             res.end("Commands data saved");
 
         }
+    });
+});
+app.options('/createCommands', (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.sendStatus(200);
+});
+
+
+app.post("/createCommands", (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.sendStatus(200);
+    let body = "";
+    req.on("data", chunk => {
+        body += chunk.toString();
+    });
+    req.on("end", () => {
+        const jsonData = JSON.parse(body);
+        const filePath = __dirname + "\\public\\db\\Commands\\Commands.json";
+        let commandsData = [];
+        if (fs.existsSync(filePath)) {
+            const fileContent = fs.readFileSync(filePath, 'utf8');
+            commandsData = JSON.parse(fileContent);
+        }
+        commandsData.push(jsonData);
+        console.log(jsonData)
+        fs.writeFileSync(filePath, JSON.stringify(commandsData, null, 2));
+        res.end("Commands data saved");
     });
 });
 

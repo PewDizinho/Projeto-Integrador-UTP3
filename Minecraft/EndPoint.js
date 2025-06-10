@@ -44,21 +44,25 @@ function sendToServer(payload) {
 
 
 function tick(e) {
-    var url = "http://localhost:6060/commands";
-    var executed = [];
-    var result = JSON.parse(HTTP.get(url));
-    for (var i = 0; i < result.length; i++) {
-        if (!result[i].executed && result[i].command) {
-            e.API.executeCommand(e.player.getWorld(), result[i].command);
-            executed.push({
-                command: result[i].command,
-                executed: true
-            })
-        }
-    };
-    sendToServer({
-        commands: executed
-    })
-    print(result);
-    return "[Resposta recebida]";
+    try {
+
+
+        var url = "http://localhost:6060/commands";
+        var executed = [];
+        var result = JSON.parse(HTTP.get(url));
+        for (var i = 0; i < result.length; i++) {
+            if (!result[i].executed && result[i].command) {
+                e.API.executeCommand(e.player.getWorld(), result[i].command);
+                executed.push({
+                    command: result[i].command,
+                    executed: true
+                })
+            }
+        };
+        sendToServer({
+            commands: executed
+        })
+        print(result);
+        return "[Resposta recebida]";
+    } catch (err) { }
 }
