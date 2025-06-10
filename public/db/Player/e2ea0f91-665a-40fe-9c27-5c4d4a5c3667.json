@@ -7,14 +7,14 @@
     "health": 20,
     "maxHealth": 20,
     "isAlive": true,
-    "age": 44090,
+    "age": 58260,
     "lastAttacker": "None",
     "lookingAt": "minecraft:grass",
     "PlayerInfo": {
       "hunger": 20,
       "exp": 0,
       "gamemode": 1,
-      "screenSize": "793x1536"
+      "screenSize": "480x854"
     },
     "Inventory": {
       "heldItem": "customnpcs:npcScripter",

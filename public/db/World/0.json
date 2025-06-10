@@ -1,0 +1,12 @@
+{
+  "Type": "World",
+  "Evento": "tick",
+  "EntityInfo": {
+    "id": 0
+  },
+  "allPlayers": "PewDizinho",
+  "time": 62923,
+  "age": 62923,
+  "isDay": false,
+  "isRaining": false
+}

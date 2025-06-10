@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listagens de Players Minecraft</title>
+  <link rel="icon" href="data:," />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="status-title">Players Online - <span id="player-count">
+        <span id="player-count"></div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="window.location.href='../ListagemPlayers/index.html'">Players</button>
+      <button class="tab" onclick="window.location.href='../DashServidor/index.html'">Servidor</button>
+      <button class="tab" onclick="window.location.href='../ListagemNPC/index.html'">NPCS</button>
+    </div>
+
+    <div class="panel">
+      <div>
+        <button class="voltar-btn" onclick="window.location.href='../landing/index.html'">← Voltar</button>
+        <div style="margin-top: 5px;"></div>
+
+        <div id="time">
+          <p> Servidor Online desde: <span id="server-time">00:00:00</span></p>
+        </div>
+        <div id="server-info">
+          <p>Servidor: <span id="server-name">Projeto Integrador</span></p>
+          <p>Versão: <span id="server-version">1.7.10</span></p>
+          <p>Uso de Armazenamento: <span id="server-version">100%</span></p>
+          <p>Uso de RAM: <span id="server-version">100%</span></p>
+          <p>Uso de CPU: <span id="server-version">100%</span></p>
+        </div>
+        <input type="text"
+          style="display: inline-block; background: rgba(0,0,0,0.7); color: #fff; font-family: 'Press Start 2P', monospace; padding: 8px 16px; border-radius: 4px; border: 2px solid #333; box-shadow: 2px 2px 0 #222; font-size: 12px; width: 350px;"
+          placeholder="Console..." />
+      </div>
+      <div class="buttons-container">
+        <div id="chat">
+
+        </div>
+      </div>
+      <div class="buttons-container">
+        <button>Matar Todos</button>
+        <button>Expulsar Todos</button>
+        <button>Chover</button>
+        <button>Mudar para Dia</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
