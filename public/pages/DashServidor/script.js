@@ -34,7 +34,7 @@ async function carregarChat() {
       playerSpan.textContent = `[${message.player && message.player.name ? message.player.name : "Desconhecido"}] `;
 
       // Limit the number of displayed messages
-      const MAX_CHAT_MESSAGES = 25; // Change this value to customize the limit
+      const MAX_CHAT_MESSAGES = 10; // Change this value to customize the limit
       const startIdx = Math.max(0, chatMessages.length - MAX_CHAT_MESSAGES);
       const visibleMessages = chatMessages.slice(startIdx);
 
@@ -59,16 +59,7 @@ async function carregarChat() {
           chatContainer.appendChild(msgElement);
         });
       }
-      // Prevent further rendering in the original forEach
-      return;
-      textSpan.className = "chat-text";
-      // Exibe a mensagem corretamente
-      textSpan.textContent = message.Message;
 
-      messageElement.appendChild(playerSpan);
-      messageElement.appendChild(textSpan);
-
-      chatContainer.appendChild(messageElement);
     });
   } catch (error) {
     console.error("Erro ao carregar o chat:", error);
@@ -77,7 +68,7 @@ async function carregarChat() {
 
 window.onload = () => {
   carregarServer();
-  setInterval(carregarServer, 5000);
+  setInterval(carregarServer, 500);
   carregarChat();
-  setInterval(carregarChat, 5000);
+  setInterval(carregarChat, 500);
 };

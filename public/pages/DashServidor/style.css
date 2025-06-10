@@ -9,6 +9,12 @@ p {
   color: white;
 }
 
+span {
+  color: white;
+  font-family: 'Minecraftia';
+  font-size: 15px;
+}
+
 body {
   /* Corpo da pagina*/
   margin: 0;
@@ -113,12 +119,19 @@ body {
   box-sizing: border-box;
   /* Faz padding e border fazerem parte da largura total */
   min-height: 450px;
+  min-width: 1500px;
   /* Garante uma altura mínima para o conteúdo */
   border-radius: 12px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.chat-text {
+  max-width: 40px;
+  word-break: break-word;
+  white-space: normal;
 }
 
 

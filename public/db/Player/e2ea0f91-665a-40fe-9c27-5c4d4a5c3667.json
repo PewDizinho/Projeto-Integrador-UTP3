@@ -7,7 +7,7 @@
     "health": 20,
     "maxHealth": 20,
     "isAlive": true,
-    "age": 58260,
+    "age": 97730,
     "lastAttacker": "None",
     "lookingAt": "minecraft:grass",
     "PlayerInfo": {
@@ -27,9 +27,9 @@
     },
     "position": {
       "dimension": 0,
-      "x": 283.65169723712063,
+      "x": 278.2635730875103,
       "y": 4,
-      "z": 1745.633537897879
+      "z": 1743.8012121649979
     }
   }
 }
