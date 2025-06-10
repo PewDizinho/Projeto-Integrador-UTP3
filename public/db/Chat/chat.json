@@ -385,5 +385,77 @@
       "id": "e2ea0f91-665a-40fe-9c27-5c4d4a5c3667",
       "name": "PewDizinho"
     }
+  },
+  {
+    "Type": "Chat",
+    "Evento": "Chat",
+    "Message": "aoba",
+    "player": {
+      "id": "e2ea0f91-665a-40fe-9c27-5c4d4a5c3667",
+      "name": "PewDizinho"
+    }
+  },
+  {
+    "Type": "Chat",
+    "Evento": "Chat",
+    "Message": "aoba",
+    "player": {
+      "id": "e2ea0f91-665a-40fe-9c27-5c4d4a5c3667",
+      "name": "PewDizinho"
+    }
+  },
+  {
+    "Type": "Chat",
+    "Evento": "Chat",
+    "Message": "oi",
+    "player": {
+      "id": "e2ea0f91-665a-40fe-9c27-5c4d4a5c3667",
+      "name": "PewDizinho"
+    }
+  },
+  {
+    "Type": "Chat",
+    "Evento": "Chat",
+    "Message": "aoba",
+    "player": {
+      "id": "e2ea0f91-665a-40fe-9c27-5c4d4a5c3667",
+      "name": "PewDizinho"
+    }
+  },
+  {
+    "Type": "Chat",
+    "Evento": "Chat",
+    "Message": "tudo bem",
+    "player": {
+      "id": "e2ea0f91-665a-40fe-9c27-5c4d4a5c3667",
+      "name": "PewDizinho"
+    }
+  },
+  {
+    "Type": "Chat",
+    "Evento": "Chat",
+    "Message": "tudo certo",
+    "player": {
+      "id": "e2ea0f91-665a-40fe-9c27-5c4d4a5c3667",
+      "name": "PewDizinho"
+    }
+  },
+  {
+    "Type": "Chat",
+    "Evento": "Chat",
+    "Message": "tudo otimo",
+    "player": {
+      "id": "e2ea0f91-665a-40fe-9c27-5c4d4a5c3667",
+      "name": "PewDizinho"
+    }
+  },
+  {
+    "Type": "Chat",
+    "Evento": "Chat",
+    "Message": "oi",
+    "player": {
+      "id": "e2ea0f91-665a-40fe-9c27-5c4d4a5c3667",
+      "name": "PewDizinho"
+    }
   }
 ]
