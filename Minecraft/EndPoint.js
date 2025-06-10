@@ -45,7 +45,7 @@ function sendToServer(payload) {
 
 function tick(e) {
     try {
-
+//
 
         var url = "http://localhost:6060/commands";
         var executed = [];
