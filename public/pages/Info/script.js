@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Eduarda Horning": "https://github.com/eduardahor",
         "Gabriela Rocca": "https://github.com/GabRocca",
         "João Gabriel": "https://github.com/Blu-guy",
-        "João Neto": "https://github.com/PirateCoder13",
+        "João Netto": "https://github.com/PirateCoder13",
         "José Otavio": "https://github.com/JoseOtavioCR",
         "Luiz Henrique": "https://github.com/lhzluiz",
         "Paulo Konopka": "https://github.com/PewDizinho"

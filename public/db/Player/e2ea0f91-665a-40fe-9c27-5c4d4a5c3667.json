@@ -1,0 +1,35 @@
+{
+  "Type": "Player",
+  "Evento": "tick",
+  "EntityInfo": {
+    "id": "e2ea0f91-665a-40fe-9c27-5c4d4a5c3667",
+    "name": "PewDizinho",
+    "health": 20,
+    "maxHealth": 20,
+    "isAlive": true,
+    "age": 44090,
+    "lastAttacker": "None",
+    "lookingAt": "minecraft:grass",
+    "PlayerInfo": {
+      "hunger": 20,
+      "exp": 0,
+      "gamemode": 1,
+      "screenSize": "793x1536"
+    },
+    "Inventory": {
+      "heldItem": "customnpcs:npcScripter",
+      "armor": {
+        "head": "Air",
+        "chest": "Air",
+        "legs": "Air",
+        "feet": "Air"
+      }
+    },
+    "position": {
+      "dimension": 0,
+      "x": 283.65169723712063,
+      "y": 4,
+      "z": 1745.633537897879
+    }
+  }
+}
