@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Monitoramento NPC</title>
-  <link rel="icon" href="data:,">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listagens de Players Minecraft</title>
+  <link rel="icon" href="data:," />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <div class="main-container">
-    <div class="status-title">Monitoramento do NPC</div>
+    <div class="status-title">Players Online - <span id="player-count">
+        <span id="player-count"></div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="window.location.href='../ListagemPlayers/index.html'">Players</button>
+      <button class="tab" onclick="window.location.href='../DashServidor/index.html'">Servidor</button>
+      <button class="tab" onclick="window.location.href='../ListagemNPC/index.html'">NPCS</button>
+    </div>
 
     <div class="panel">
-      <button class="voltar-btn" onclick="window.location.href='../ListagemNPC/index.html'">← Voltar</button>
 
-      <div class="monitor-box">
-        <p>NPC</p>
-        <p>ID: </p>
-        <p>Nome: </p>
-        <p>VIDA: </p>
-        <p>VIDA MÁXIMA: </p>
-        <p>VIVO/MORTO: </p>
-        <p>Idade: </p>
-        <p>Ultimo agressor: </p>
-        <p>Olhando para: </p>
-        <p>Posição: </p>
-        <p>Dimensão: </p>
+      <div id="player">
+        <button class="voltar-btn" onclick="window.location.href='../ListagemNPC/index.html'">← Voltar</button>
+        <div style="margin-top: 5px;"></div>
+
+        <p id="player-name"></p>
+        <div id="heart"></div>
+        <div id="hungry"></div>
+        <p id="player-position"></p>
+        <p id="player-age"></p>
+   
+       
+      </div>
+      <div id="inventory">
 
       </div>
-
+      <div id="player-avatar">
+      </div>
     </div>
   </div>
 
+
+
   <script src="script.js"></script>
 </body>
+
 </html>
-
-

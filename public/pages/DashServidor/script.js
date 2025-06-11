@@ -23,7 +23,7 @@ function executeCommand(command) {
 async function carregarServer() {
   try {
     const response = await fetch("http://localhost:6060/world");
-    const players = await response.json();
+    const world = await response.json();
 
 
     fetch("http://localhost:6060/playersQuantity")
@@ -34,6 +34,30 @@ async function carregarServer() {
       .catch(() => {
         document.getElementById("player-count").innerText = "Erro";
       });
+
+    let seconds = Math.floor(world.time / 20);
+    let displayTime = "";
+    if (seconds >= 3600) {
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+      const secs = seconds % 60;
+      displayTime = `${hours}h ${minutes}m ${secs}s`;
+    } else if (seconds >= 60) {
+      const minutes = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      displayTime = `${minutes}m ${secs}s`;
+    } else {
+      displayTime = `${seconds}s`;
+    }
+    document.getElementById("server-time").innerText = displayTime || "Desconhecido";
+    // Dummy values for roleplay: generate random usage percentages
+    const armazenamento = Math.floor(Math.random() * 41) + 60; // 60% - 100%
+    const ram = Math.floor(Math.random() * 41) + 60; // 60% - 100%
+    const cpu = Math.floor(Math.random() * 41) + 60; // 60% - 100%
+
+    document.getElementById("server-armazenamento").innerText = armazenamento + "%";
+    document.getElementById("server-ram").innerText = ram + "%";
+    document.getElementById("server-cpu").innerText = cpu + "%";
   } catch (error) {
     console.error("Erro ao carregar os players:", error);
   }

@@ -4,32 +4,32 @@
   "EntityInfo": {
     "id": "e2ea0f91-665a-40fe-9c27-5c4d4a5c3667",
     "name": "PewDizinho",
-    "health": 17.520000457763672,
+    "health": 20,
     "maxHealth": 20,
     "hungry": 20,
     "isAlive": true,
-    "age": 3320,
-    "lookingAt": "minecraft:fence",
+    "age": 11850,
+    "lookingAt": "minecraft:leaves",
     "PlayerInfo": {
       "hunger": 20,
       "exp": 0,
-      "gamemode": 0,
+      "gamemode": 1,
       "screenSize": "793x1536"
     },
     "Inventory": {
-      "heldItem": "minecraft:stone_sword",
+      "heldItem": "Air",
       "armor": {
-        "head": "minecraft:chainmail_helmet",
-        "chest": "minecraft:diamond_chestplate",
-        "legs": "minecraft:chainmail_leggings",
-        "feet": "minecraft:iron_boots"
+        "head": "Air",
+        "chest": "Air",
+        "legs": "Air",
+        "feet": "Air"
       }
     },
     "position": {
       "dimension": 0,
-      "x": 280.20878049452773,
-      "y": 4,
-      "z": 1740.8020021040772
+      "x": -96.78186104758306,
+      "y": 109,
+      "z": -935.3000000119209
     }
   }
 }

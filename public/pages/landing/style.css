@@ -17,7 +17,7 @@
 
 /* Estilo do corpo da página */
 body {
-  background-image: url("../../assets/blocks/dirt.png");
+  background-image: url("../../assets/items/dirt.png");
   background-repeat: repeat;
   background-size: 64px;
   overflow: hidden;
