@@ -22,14 +22,24 @@
     </div>
 
     <div class="panel">
-      <button class="voltar-btn" onclick="window.location.href='../landing/index.html'">← Voltar</button>
-      <div style="margin-top: 5px;"></div>
-      <div class="search-box">
-        <img src="../../assets/items/magnifying-glass-Mine.png" class="icon" alt="Lupa" />
-        <input type="text" id="search" placeholder="Search..." />
-      </div>
 
-      <div id="lista-players" class="players-container"> <!-- Jogadores vão ficar aqui -->
+      <div id="player">
+        <button class="voltar-btn" onclick="window.location.href='../landing/index.html'">← Voltar</button>
+        <div style="margin-top: 5px;"></div>
+
+        <p id="player-name"></p>
+        <div id="heart"></div>
+        <div id="hungry"></div>
+        <p id="player-position"></p>
+        <p id="player-age"></p>
+        <p id="player-screen-size"></p>
+        <button onclick="executeCommand('kill')">Matar</button>
+        <button onclick="executeCommand('kick')">Kick</button>
+      </div>
+      <div id="inventory">
+
+      </div>
+      <div id="player-avatar">
       </div>
     </div>
   </div>

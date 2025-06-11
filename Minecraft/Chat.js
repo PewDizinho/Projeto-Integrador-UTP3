@@ -1,4 +1,4 @@
-
+//Chat
 function sendToServer(payload) {
     var url = "http://localhost:6060/api"; //<--- Ip do servidor node
     API.postJsonHTTP(url, JSON.stringify(payload));//<--- Função que envia o json para o servidor

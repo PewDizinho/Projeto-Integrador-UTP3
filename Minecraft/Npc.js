@@ -1,4 +1,5 @@
-function sendToServer(payload) {
+//Npc
+ function sendToServer(payload) {
     var url = "http://localhost:6060/api";
     API.postJsonHTTP(url, JSON.stringify(payload));
     return "[Enviado]";

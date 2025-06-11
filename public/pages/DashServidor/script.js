@@ -1,24 +1,24 @@
 function sendCommand() {
-  const input = document.getElementById("console-input");
-  const commandText = input.value.trim();
-  if (commandText) {
-    fetch("http://localhost:6060/createCommands", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        command: commandText,
-        executed: false
-      })
-    }).then(() => {
-      input.value = "";
-    }).catch(err => {
-      console.error("Erro ao enviar comando:", err);
-      input.value = "";
-    });
-  }
+  if (document.getElementById("console-input").value.trim()) executeCommand(document.getElementById("console-input").value.trim());
 }
+function executeCommand(command) {
+  fetch("http://localhost:6060/createCommands", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      command: command,
+      executed: false
+    })
+  }).then(() => {
+    input.value = "";
+  }).catch(err => {
+    console.error("Erro ao enviar comando:", err);
+    input.value = "";
+  });
+}
+
 
 async function carregarServer() {
   try {

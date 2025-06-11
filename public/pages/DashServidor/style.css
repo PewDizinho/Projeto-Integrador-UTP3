@@ -119,7 +119,7 @@ body {
   box-sizing: border-box;
   /* Faz padding e border fazerem parte da largura total */
   min-height: 450px;
-  min-width: 1500px;
+  min-width: 1300px;
   /* Garante uma altura mínima para o conteúdo */
   border-radius: 12px;
   display: flex;

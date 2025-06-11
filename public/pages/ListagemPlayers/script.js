@@ -1,8 +1,11 @@
 async function carregarPlayers() {
+  let plrs = [];
   try {
     fetch("http://localhost:6060/playersQuantity")
       .then(response => response.json())
       .then(data => {
+
+        plrs = data.players;
         document.getElementById("player-count").innerText = data.quantity || 0;
       })
       .catch(() => {
@@ -12,7 +15,7 @@ async function carregarPlayers() {
     const players = await response.json();
 
     const container = document.getElementById("lista-players");
-
+    container.innerHTML = "";
     players.forEach(player => {
       const entity = player.EntityInfo || {};
 
@@ -37,31 +40,58 @@ async function carregarPlayers() {
         player.Dimension = entity.position.dimension ?? "Desconhecida";
       }
 
-      // Garante que EntityInfo tenha os campos esperados
-      player.EntityInfo = {
-        id: entity.id ?? "Desconhecido",
-        name: entity.name ?? "Sem nome",
-        health: entity.health ?? 0,
-        maxHealth: entity.maxHealth ?? 20,
-        isAlive: entity.isAlive ?? false,
-        age: entity.age ?? 0,
-        lastAttacker: entity.lastAttacker ?? "Nenhum",
-        lookingAt: entity.lookingAt ?? "?"
-      };
+     
 
       const nome = player.EntityInfo.name;
 
       const div = document.createElement("div");
-      div.className = "player-card";
+
       div.innerHTML = `
+      <div>
         <img src="https://mc-heads.net/avatar/${nome}" alt="" class="player-icon" />
         <span class="player-name">${nome}</span>
+        <div style="margin-left: 10px"></div>
+       <div id="heart"></div>
+       </div>
+       <div>
+        <button onclick="executeCommand('kill ${nome}')">Matar</button>
+        <button onclick="executeCommand('kick ${nome}')">Expulsar</button>
+       </div>
       `;
 
       div.addEventListener("click", () => {
-        mostrarModal(player);
+       location.href = `../DashPlayer/index.html?player=${nome}`;
       });
-
+      for (var i = 0; i < player.EntityInfo.health / 2; i++) {
+        console.log(player.EntityInfo.health);
+        const heart = document.createElement("img");
+        heart.src = "../../assets/heart.png";
+        heart.alt = "Coração";
+        heart.className = "heart";
+        div.querySelector("#heart").appendChild(heart);
+      }
+      if (player.EntityInfo.health % 2 === 1) {
+        const halfHeart = document.createElement("img");
+        halfHeart.src = "../../assets/half-heart.png";
+        halfHeart.alt = "Meio coração";
+        halfHeart.className = "heart";
+        div.querySelector("#heart").appendChild(halfHeart);
+      }
+      const missingHearts = Math.floor((player.EntityInfo.maxHealth - player.EntityInfo.health) / 2);
+      for (let i = 0; i < missingHearts; i++) {
+        const brokenHeart = document.createElement("img");
+        brokenHeart.src = "../../assets/broken-heart.png";
+        brokenHeart.alt = "Coração partido";
+        brokenHeart.className = "heart";
+        div.querySelector("#heart").appendChild(brokenHeart);
+      }
+      if (!plrs.includes(nome)) {
+        div.className = "player-card offline";
+      } else {
+        div.className = "player-card";
+        container.prepend(div);
+        return;
+      }
       container.appendChild(div);
     });
   } catch (error) {
@@ -69,77 +99,27 @@ async function carregarPlayers() {
   }
 }
 
-function mostrarModal(player) {
-  const entity = player.EntityInfo || {};
-  const info = player.PlayerInfo || {};
-  const inv = player.Inventory || {};
-  const pos = player.Position || {};
-  const dim = player.Dimension || 'Desconhecida';
 
-  const isAir = (item) =>
-    !item || item.toLowerCase() === 'air' || item.toLowerCase() === 'minecraft:air';
 
-  const formatItemName = (item) =>
-    isAir(item) ? 'Não utilizada' : item.replace('minecraft:', '');
-
-  document.getElementById('player-skin-image').src = `https://mc-heads.net/body/${entity.name}`;
-  document.getElementById('player-id').textContent = `Id do Jogador: ${entity.id}`;
-  document.getElementById('player-nickname').textContent = `Nickname: ${entity.name}`;
-  document.getElementById('player-life').textContent = `Vida: ${entity.health}/${entity.maxHealth}`;
-  document.getElementById('player-isalive').textContent = `Vivo: ${entity.isAlive ? 'Sim' : 'Não'}`;
-  document.getElementById('player-age').textContent = `Dias no servidor: ${Math.floor(entity.age / 24000)}`;
-  document.getElementById('player-lastattacker').textContent = `Último agressor: ${entity.lastAttacker || 'Nenhum'}`;
-  document.getElementById('player-lookingat').textContent = `Olhando para: ${entity.lookingAt || '?'}`;
-  document.getElementById('player-hunger').textContent = `Fome: ${info.hunger}/20`;
-  document.getElementById('player-experience').textContent = `Nível de experiência: ${info.exp}`;
-  document.getElementById('player-gamemode').textContent = `Gamemode: ${info.gamemode}`;
-  document.getElementById('player-screen-size').textContent = `Resolução: ${info.screenSize || 'Desconhecida'}`;
-
-  const armor = inv.armor || {};
-  const parts = {
-    head: 'Capacete',
-    chest: 'Peitoral',
-    legs: 'Calça',
-    feet: 'Botas',
-  };
-
-  const armorHtml = [];
-
-  for (const part in parts) {
-    const rawItem = armor[part];
-    const name = formatItemName(rawItem);
-    armorHtml.push(
-      isAir(rawItem)
-        ? `<div>${parts[part]}: ${name}</div>`
-        : `<div style="display: flex; align-items: center; gap: 8px;">
-         ${parts[part]}:
-         <img src="../../assets/items/${name}.png" alt="${name}" width="30" height="30" style="vertical-align: middle;">
-       </div>`
-    );
-
-  }
-
-  document.getElementById('player-armor').innerHTML = armorHtml.join('');
-  const posX = pos.x ?? '?';
-  const posY = pos.y ?? '?';
-  const posZ = pos.z ?? '?';
-  document.getElementById('player-position').innerHTML = `
-  <div>Posição no Mapa:</div>
-  <div style="margin-left: 14px;">X: ${posX}</div>
-  <div style="margin-left: 14px;">Y: ${posY}</div>
-  <div style="margin-left: 14px;">Z: ${posZ}</div>
-`;
-
-  document.getElementById('player-dimension').textContent = `Dimensão: ${dim}`;
-
-  document.getElementById('player-modal').classList.remove('hidden');
-}
-
-function fecharModal() {
-  document.getElementById('player-modal').classList.add('hidden');
-}
 
 window.onload = () => {
   carregarPlayers();
-  setInterval(carregarPlayers, 5000);
+  setInterval(carregarPlayers, 500);
 };
+function executeCommand(command) {
+  fetch("http://localhost:6060/createCommands", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      command: command,
+      executed: false
+    })
+  }).then(() => {
+    input.value = "";
+  }).catch(err => {
+    console.error("Erro ao enviar comando:", err);
+    input.value = "";
+  });
+}

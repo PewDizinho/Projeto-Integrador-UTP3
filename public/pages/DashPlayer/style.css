@@ -4,6 +4,10 @@
   src: url('../../assets/fonts/minecraftia.ttf')
 }
 
+p {
+  font-family: 'Minecraftia', monospace;
+  color: white;
+}
 
 body {
   /* Corpo da pagina*/
@@ -110,58 +114,20 @@ body {
   min-height: 450px;
   /* Garante uma altura mínima para o conteúdo */
   border-radius: 12px;
-}
 
-.search-box {
-  /* Caixa do search*/
   display: flex;
-  /* Layout horizontal: ícone e input lado a lado */
-  align-items: center;
-  background: #4a4a4a;
-  border: 2px solid #aaa;
-  border-radius: 8px;
-  padding: 8px 10px;
-  /* Espaçamento interno */
-  margin-bottom: 20px;
-  /* Espaço debaixo da caixa */
-  width: 100%;
-  max-width: 840px;
-  /* Largura máxima */
-  box-shadow: inset 0 0 3px #000;
+  justify-content: space-between;
 }
 
 
-.search-box .icon {
-  /*ìcone da lupa*/
-  width: 15px;
-  height: 15px;
-  margin-right: 10px;
-  filter: brightness(0.9);
-  /* Deixa o ícone um pouco mais escuro */
+div#inventory {
+  display: flex;
+  flex-direction: column;
 }
 
-
-.search-box input {
-  flex: 1;
-  /* O input ocupa todo o espaço restante */
-  background: transparent;
-  /* Fundo transparente */
-  border: none;
-  /* Remove a borda padrão do input */
-  color: #ddd;
-  font-size: 12px;
-  font-family: 'Minecraftia', monospace;
-  outline: none;
-  /* Remove contorno azul padrão ao focar */
+img.item {
+  width: 50px;
 }
-
-
-.search-box input:focus {
-  /* Quando o campo de busca está clicado*/
-  color: white;
-  font-style: normal;
-}
-
 
 .voltar-btn {
   /* Botão de voltar*/
@@ -178,7 +144,6 @@ body {
   cursor: pointer;
   z-index: 0;
   box-shadow: 2px 2px 0 #222;
-  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 
@@ -188,41 +153,6 @@ body {
 }
 
 
-.player-card {
-  background: #2e2e2e;
-  border: 2px solid #555;
-  border-radius: 8px;
-  padding: 10px;
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: white;
-  font-family: 'Minecraftia', monospace;
-}
-
-.player-card div {
-  display: flex;
-  align-items: center;
-}
-
-.player-icon {
-  width: 32px;
-  height: 32px;
-  margin-right: 16px;
-}
-
-
-.player-name {
-  font-size: 12px;
-}
-
-
-.player-card:hover {
-  cursor: pointer;
-  background: #3a3a3a;
-  /* opcional: dá um leve destaque ao passar o mouse */
-}
 
 
 @media (max-width: 768px) {
@@ -253,10 +183,6 @@ body {
 
 
 
-#player-armor div {
-  margin-bottom: 2px;
-  /* Adiciona espaço entre cada peça de armadura */
-}
 
 
 .close-button {
@@ -270,77 +196,6 @@ body {
 }
 
 
-.player-stats {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 100%;
-  gap: 40px;
-}
-
-
-.player-skin {
-  width: 320px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-#player-skin-image {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-}
-
-
-.dados {
-  flex: 1;
-  background: #3c3c3c;
-  padding: 20px;
-  box-shadow: inset 0 0 3px #000;
-  border: 2px solid #888;
-  border-radius: 10px;
-  overflow-y: auto;
-  max-height: 90%;
-  font-size: 16px;
-  font-family: 'Minecraftia', monospace;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-
-.dados div {
-  background: none;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  margin: 0;
-  color: white;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-#player-skin-image:hover {
-  animation: pulse 1.2s infinite ease-in-out;
-  filter: brightness(1.1);
-}
-
 .offline {
   background: #636363;
 
@@ -351,11 +206,9 @@ body {
 
 }
 
-.offline .player-icon, .offline .heart {
-  filter: grayscale(100%);
-}
 
-.heart {
+
+.heart, .hungry {
   width: 20px;
 }
 

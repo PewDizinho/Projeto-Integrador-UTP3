@@ -1,1 +1,6 @@
-[]
+[
+  {
+    "command": "kill PiuDeliro",
+    "executed": false
+  }
+]

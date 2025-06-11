@@ -1,4 +1,4 @@
-
+//Player
 function sendToServer(payload) {
     var url = "http://localhost:6060/api"; //<--- Ip do servidor node
     API.postJsonHTTP(url, JSON.stringify(payload));//<--- Função que envia o json para o servidor
@@ -18,9 +18,9 @@ function tick(e) {//o Evento "TICK" é um evento que ocorre a cada tick do servi
             name: e.player.getName(), // Nome do jogador
             health: e.player.getHealth(), // Saúde atual do jogador
             maxHealth: e.player.getMaxHealth(), // Saúde máxima do jogador
+            hungry: e.player.getHunger(), // Fome atual do jogador
             isAlive: e.player.isAlive(), // Booleano indicando se o jogador está vivo
             age: e.player.getAge(), // Idade do jogador
-            lastAttacker: e.player.getLastAttacker() != null ? e.player.getLastAttacker().getName() : "None", // Último atacante do jogador
             lookingAt: e.player.getLookingAtBlock(64) != null ? e.player.getLookingAtBlock(64).getName() : "Air", // Bloco que o jogador está olhando
             PlayerInfo: {
                 hunger: e.player.getHunger(), // Fome do jogador

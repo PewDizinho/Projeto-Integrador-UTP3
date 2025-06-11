@@ -17,11 +17,11 @@
       "screenSize": "480x854"
     },
     "Inventory": {
-      "heldItem": "customnpcs:npcScripter",
+      "heldItem": "Air",
       "armor": {
         "head": "minecraft:chainmail_helmet",
         "chest": "minecraft:diamond_chestplate",
-        "legs": "minecraft:golden_leggings",
+        "legs": "minecraft:diamond_leggings",
         "feet": "minecraft:leather_boots"
       }
     },

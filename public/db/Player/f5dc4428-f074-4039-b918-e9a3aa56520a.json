@@ -17,7 +17,7 @@
       "screenSize": "1009x1920"
     },
     "Inventory": {
-      "heldItem": "customnpcs:npcScripter",
+      "heldItem": "Air",
       "armor": {
         "head": "Air",
         "chest": "Air",
