@@ -41,7 +41,7 @@ app.post("/api", (req, res) => {//Quando eu dou um POST ou seja, envio informaç
             return;
         }
         //Ele pega as informações enviadas, e salva dentro da pasta public/db/(Tipo de entidade)/(ID da entidade).json ou seja /public/db/Player/UUID.json
-        if (jsonData.length < 1) return;
+        if (jsonData !== null) return;
         fs.writeFile(`public/db/${jsonData.Type}/${jsonData.EntityInfo.id}.json`, JSON.stringify(jsonData, null, 2), (err) => {
             if (err) {
                 console.error("Error writing to file", err);

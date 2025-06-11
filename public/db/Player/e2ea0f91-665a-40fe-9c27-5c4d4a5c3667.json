@@ -8,28 +8,28 @@
     "maxHealth": 20,
     "hungry": 20,
     "isAlive": true,
-    "age": 11850,
-    "lookingAt": "minecraft:leaves",
+    "age": 3480,
+    "lookingAt": "minecraft:stone_brick_stairs",
     "PlayerInfo": {
       "hunger": 20,
       "exp": 0,
       "gamemode": 1,
-      "screenSize": "793x1536"
+      "screenSize": "503x1003"
     },
     "Inventory": {
-      "heldItem": "Air",
+      "heldItem": "customnpcs:npcScripter",
       "armor": {
         "head": "Air",
-        "chest": "Air",
-        "legs": "Air",
-        "feet": "Air"
+        "chest": "minecraft:diamond_chestplate",
+        "legs": "minecraft:iron_leggings",
+        "feet": "minecraft:chainmail_boots"
       }
     },
     "position": {
       "dimension": 0,
-      "x": -96.78186104758306,
-      "y": 109,
-      "z": -935.3000000119209
+      "x": -47.52296215689812,
+      "y": 112,
+      "z": -1010.4075462110704
     }
   }
 }
