@@ -29,10 +29,10 @@ app.post("/api", (req, res) => {//Quando eu dou um POST ou seja, envio informaç
             let chatData = [];
             if (fs.existsSync(chatFilePath)) {
                 const fileContent = fs.readFileSync(chatFilePath, 'utf8');
-           
-                    chatData = JSON.parse(fileContent);
-                    if (!Array.isArray(chatData)) chatData = [];
-              
+
+                chatData = JSON.parse(fileContent);
+                if (!Array.isArray(chatData)) chatData = [];
+
             }
             chatData.push(jsonData);
             fs.writeFileSync(chatFilePath, JSON.stringify(chatData, null, 2));
@@ -57,31 +57,31 @@ app.get("/players", (req, res) => { //Quando eu acesso o 192.168.1.15:6060/playe
 
 
 
-        const directoryPath = __dirname + "\\public\\db\\Player";
+    const directoryPath = __dirname + "\\public\\db\\Player";
 
-        fs.readdir(directoryPath, (err, files) => {
-            if (err) { //Caso dê erro
-                console.error("Error reading directory", err);
-                res.statusCode = 500;
-                return res.end("Error reading directory");
-            }
-            //Isso resolve um erro chamado CORS, pesquisem se quiserem saber mais
-            res.setHeader("Access-Control-Allow-Origin", "*");
-            res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-            res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-            res.setHeader("Content-Type", "text/plain");
+    fs.readdir(directoryPath, (err, files) => {
+        if (err) { //Caso dê erro
+            console.error("Error reading directory", err);
+            res.statusCode = 500;
+            return res.end("Error reading directory");
+        }
+        //Isso resolve um erro chamado CORS, pesquisem se quiserem saber mais
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+        res.setHeader("Content-Type", "text/plain");
 
 
-            const fileContents = files.map(file => {//Ele lê os arquivos e salva dentro de um array
-                const filePath = `${directoryPath}\\${file}`;
-                const fileContent = fs.readFileSync(filePath, 'utf8');
-                if (!fileContent) return null; // Se o conteúdo do arquivo estiver vazio, retorna null
-                return JSON.parse(fileContent);
-            });
-            res.setHeader("Content-Type", "application/json");
-            res.end(JSON.stringify(fileContents));//Devolve o nome dos arquivos dentro da pasta /public/db/Player
+        const fileContents = files.map(file => {//Ele lê os arquivos e salva dentro de um array
+            const filePath = `${directoryPath}\\${file}`;
+            const fileContent = fs.readFileSync(filePath, 'utf8');
+            if (!fileContent) return null; // Se o conteúdo do arquivo estiver vazio, retorna null
+            return JSON.parse(fileContent);
         });
-  
+        res.setHeader("Content-Type", "application/json");
+        res.end(JSON.stringify(fileContents));//Devolve o nome dos arquivos dentro da pasta /public/db/Player
+    });
+
 });
 app.get("/playersQuantity", (req, res) => {
     const filePath = __dirname + "\\public\\db\\World\\0.json";
@@ -90,11 +90,11 @@ app.get("/playersQuantity", (req, res) => {
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     res.setHeader("Content-Type", "text/plain");
 
-   
-        const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-        res.setHeader("Content-Type", "application/json");
-        res.end(JSON.stringify({ quantity: data.allPlayers.split(",").length, players: data.allPlayers.split(",") })); // Retorna a quantidade de jogadores
-  
+
+    const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify({ quantity: data.allPlayers.split(",").length, players: data.allPlayers.split(",") })); // Retorna a quantidade de jogadores
+
 
 });
 app.get("/npcs", (req, res) => { //Quando eu acesso o 192.168.1.15:6060/npcs ele vai me retornar todos os players salvos na pasta /public/db/Npc
@@ -124,47 +124,43 @@ app.get("/npcs", (req, res) => { //Quando eu acesso o 192.168.1.15:6060/npcs ele
 });
 app.get("/world", (req, res) => {
     const directoryPath = __dirname + "\\public\\db\\World";
-
-
-
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     res.setHeader("Content-Type", "text/plain");
-
-
-
-
-
     res.setHeader("Content-Type", "application/json");
-   
-   
+    try {
+        res.end(JSON.stringify(JSON.parse(fs.readFileSync(`${directoryPath}\\0.json`, 'utf8'))));
+    }
+    catch (err) {
+
+    }
 });
 app.get("/chat", (req, res) => {
 
-   
 
 
-        const chatFilePath = __dirname + '/public/db/Chat/chat.json';
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-        res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-        res.setHeader("Content-Type", "text/plain");
-        if (!fs.existsSync(chatFilePath)) {
-            res.setHeader("Content-Type", "application/json");
-            return res.end(JSON.stringify([])); // Retorna um array vazio se o arquivo não existir
+
+    const chatFilePath = __dirname + '/public/db/Chat/chat.json';
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Content-Type", "text/plain");
+    if (!fs.existsSync(chatFilePath)) {
+        res.setHeader("Content-Type", "application/json");
+        return res.end(JSON.stringify([])); // Retorna um array vazio se o arquivo não existir
+    }
+    fs.readFile(chatFilePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error("Error reading chat file", err);
+            res.statusCode = 500;
+            return res.end("Error reading chat file");
         }
-        fs.readFile(chatFilePath, 'utf8', (err, data) => {
-            if (err) {
-                console.error("Error reading chat file", err);
-                res.statusCode = 500;
-                return res.end("Error reading chat file");
-            }
-            let chatData = [];
-            chatData = JSON.parse(data);
-            res.setHeader("Content-Type", "application/json");
-            res.end(JSON.stringify(chatData));
-        });
+        let chatData = [];
+        chatData = JSON.parse(data);
+        res.setHeader("Content-Type", "application/json");
+        res.end(JSON.stringify(chatData));
+    });
 });
 
 app.get("/commands", (req, res) => {

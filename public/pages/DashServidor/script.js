@@ -52,13 +52,8 @@ async function carregarServer() {
     }
     document.getElementById("server-time").innerText = displayTime || "Desconhecido";
 
-    const armazenamento = Math.floor(Math.random() * 41) + 60; // 60% - 100%
-    const ram = Math.floor(Math.random() * 41) + 60; // 60% - 100%
-    const cpu = Math.floor(Math.random() * 41) + 60; // 60% - 100%
 
-    document.getElementById("server-armazenamento").innerText = armazenamento + "%";
-    document.getElementById("server-ram").innerText = ram + "%";
-    document.getElementById("server-cpu").innerText = cpu + "%";
+
   } catch (error) {
     throw new Error("Erro ao carregar os players");
   }
@@ -114,8 +109,25 @@ async function carregarChat() {
 }
 
 window.onload = () => {
+
   carregarServer();
   carregarChat();
   setInterval(carregarServer, 500);
   setInterval(carregarChat, 500);
+  // Valores iniciais para simular variação realista
+  updateServerStats()
+  setInterval(updateServerStats, 1000); // Atualiza os valores a cada segundo
+  // Função para atualizar os valores de forma independente e realista
 };
+
+function updateServerStats() {
+  setInterval(() => {
+    document.getElementById("server-armazenamento").innerText = Math.max(30, Math.floor(Math.random() * 71) + 30) + "%";
+  }, 3000);
+  setInterval(() => {
+    document.getElementById("server-ram").innerText = Math.max(30, Math.floor(Math.random() * 71) + 30) + "%";
+  }, 2000);
+  setInterval(() => {
+    document.getElementById("server-cpu").innerText = Math.max(30, Math.floor(Math.random() * 71) + 30) + "%";
+  }, 1200); 
+}
