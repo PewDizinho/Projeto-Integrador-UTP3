@@ -22,18 +22,17 @@ app.post("/api", (req, res) => {//Quando eu dou um POST ou seja, envio informaç
     });
     req.on("end", () => {
         const jsonData = JSON.parse(body);
+        console.log("[Received Data]", jsonData.Type);
 
         if (jsonData.Type == "Chat") {
             const chatFilePath = __dirname + '/public/db/Chat/chat.json';
             let chatData = [];
             if (fs.existsSync(chatFilePath)) {
                 const fileContent = fs.readFileSync(chatFilePath, 'utf8');
-                try {
+           
                     chatData = JSON.parse(fileContent);
                     if (!Array.isArray(chatData)) chatData = [];
-                } catch (e) {
-                    chatData = [];
-                }
+              
             }
             chatData.push(jsonData);
             fs.writeFileSync(chatFilePath, JSON.stringify(chatData, null, 2));
@@ -41,7 +40,6 @@ app.post("/api", (req, res) => {//Quando eu dou um POST ou seja, envio informaç
             return;
         }
         //Ele pega as informações enviadas, e salva dentro da pasta public/db/(Tipo de entidade)/(ID da entidade).json ou seja /public/db/Player/UUID.json
-        if (jsonData !== null) return;
         fs.writeFile(`public/db/${jsonData.Type}/${jsonData.EntityInfo.id}.json`, JSON.stringify(jsonData, null, 2), (err) => {
             if (err) {
                 console.error("Error writing to file", err);
@@ -49,14 +47,14 @@ app.post("/api", (req, res) => {//Quando eu dou um POST ou seja, envio informaç
                 res.end("Error saving data");
                 return;
             }
-            //  console.log("[Received Data]", jsonData);
+            console.log("[Received Data]", jsonData.Type);
         });
         res.end("POST data received");
     });
 });
 app.get("/players", (req, res) => { //Quando eu acesso o 192.168.1.15:6060/players ele vai me retornar todos os players salvos na pasta /public/db/Player
     //Eu faço isso pra conseguir ter uma lista da pasta, é uma forma mais fácil de resolver um outro problema que eu tive
-    try {
+
 
 
         const directoryPath = __dirname + "\\public\\db\\Player";
@@ -83,9 +81,7 @@ app.get("/players", (req, res) => { //Quando eu acesso o 192.168.1.15:6060/playe
             res.setHeader("Content-Type", "application/json");
             res.end(JSON.stringify(fileContents));//Devolve o nome dos arquivos dentro da pasta /public/db/Player
         });
-    } catch (error) {
-
-    }
+  
 });
 app.get("/playersQuantity", (req, res) => {
     const filePath = __dirname + "\\public\\db\\World\\0.json";
@@ -94,15 +90,11 @@ app.get("/playersQuantity", (req, res) => {
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     res.setHeader("Content-Type", "text/plain");
 
-    try {
+   
         const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
         res.setHeader("Content-Type", "application/json");
         res.end(JSON.stringify({ quantity: data.allPlayers.split(",").length, players: data.allPlayers.split(",") })); // Retorna a quantidade de jogadores
-    } catch (err) {
-        console.error("Error reading file", err);
-        res.statusCode = 500;
-        return res.end("Error reading file");
-    }
+  
 
 });
 app.get("/npcs", (req, res) => { //Quando eu acesso o 192.168.1.15:6060/npcs ele vai me retornar todos os players salvos na pasta /public/db/Npc
@@ -145,16 +137,12 @@ app.get("/world", (req, res) => {
 
 
     res.setHeader("Content-Type", "application/json");
-    try {
-        res.end(JSON.stringify(JSON.parse(fs.readFileSync(`${directoryPath}\\0.json`, 'utf8'))));
-    }
-    catch (err) {
-
-    }
+   
+   
 });
 app.get("/chat", (req, res) => {
 
-    try {
+   
 
 
         const chatFilePath = __dirname + '/public/db/Chat/chat.json';
@@ -173,15 +161,10 @@ app.get("/chat", (req, res) => {
                 return res.end("Error reading chat file");
             }
             let chatData = [];
-            try {
-                chatData = JSON.parse(data);
-            } catch (e) {
-                console.error("Error parsing chat data", e);
-            }
+            chatData = JSON.parse(data);
             res.setHeader("Content-Type", "application/json");
             res.end(JSON.stringify(chatData));
         });
-    } catch (error) { }
 });
 
 app.get("/commands", (req, res) => {

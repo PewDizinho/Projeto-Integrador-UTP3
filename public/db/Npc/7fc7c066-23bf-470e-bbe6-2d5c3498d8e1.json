@@ -7,9 +7,9 @@
     "health": 20,
     "maxHealth": 20,
     "isAlive": true,
-    "age": 24750,
+    "age": 29196,
     "lastAttacker": "None",
-    "lookingAt": "minecraft:water",
+    "lookingAt": "minecraft:log",
     "position": {
       "dimension": 0,
       "x": -48.5,

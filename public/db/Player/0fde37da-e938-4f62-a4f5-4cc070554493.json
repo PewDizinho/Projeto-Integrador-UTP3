@@ -2,34 +2,34 @@
   "Type": "Player",
   "Evento": "tick",
   "EntityInfo": {
-    "id": "e2ea0f91-665a-40fe-9c27-5c4d4a5c3667",
-    "name": "PewDizinho",
+    "id": "0fde37da-e938-4f62-a4f5-4cc070554493",
+    "name": "PirateCoder13",
     "health": 20,
     "maxHealth": 20,
     "hungry": 20,
     "isAlive": true,
-    "age": 12190,
-    "lookingAt": "minecraft:spruce_stairs",
+    "age": 1720,
+    "lookingAt": "minecraft:leaves",
     "PlayerInfo": {
       "hunger": 20,
       "exp": 0,
-      "gamemode": 1,
+      "gamemode": 0,
       "screenSize": "-1x-1"
     },
     "Inventory": {
-      "heldItem": "customnpcs:npcScripter",
+      "heldItem": "Air",
       "armor": {
         "head": "Air",
         "chest": "Air",
-        "legs": "minecraft:iron_leggings",
-        "feet": "minecraft:chainmail_boots"
+        "legs": "Air",
+        "feet": "Air"
       }
     },
     "position": {
       "dimension": 0,
-      "x": -109.76836607913776,
+      "x": -92.5,
       "y": 109,
-      "z": -947.4576156904876
+      "z": -923.5
     }
   }
 }
