@@ -12,10 +12,10 @@ function executeCommand(command) {
       executed: false
     })
   }).then(() => {
-    input.value = "";
+    document.getElementById("console-input").value = ""; // Limpa o campo de entrada após o envio
   }).catch(err => {
     console.error("Erro ao enviar comando:", err);
-    input.value = "";
+
   });
 }
 
@@ -33,8 +33,9 @@ async function carregarServer() {
       })
       .catch(() => {
         document.getElementById("player-count").innerText = "Erro";
+        throw new Error("Erro ao carregar a quantidade de jogadores");
       });
-
+    console.log("oi")
     let seconds = Math.floor(world.time / 20);
     let displayTime = "";
     if (seconds >= 3600) {
@@ -50,7 +51,7 @@ async function carregarServer() {
       displayTime = `${seconds}s`;
     }
     document.getElementById("server-time").innerText = displayTime || "Desconhecido";
-    // Dummy values for roleplay: generate random usage percentages
+
     const armazenamento = Math.floor(Math.random() * 41) + 60; // 60% - 100%
     const ram = Math.floor(Math.random() * 41) + 60; // 60% - 100%
     const cpu = Math.floor(Math.random() * 41) + 60; // 60% - 100%
@@ -59,7 +60,7 @@ async function carregarServer() {
     document.getElementById("server-ram").innerText = ram + "%";
     document.getElementById("server-cpu").innerText = cpu + "%";
   } catch (error) {
-    console.error("Erro ao carregar os players:", error);
+    throw new Error("Erro ao carregar os players");
   }
 }
 async function carregarChat() {
@@ -114,7 +115,7 @@ async function carregarChat() {
 
 window.onload = () => {
   carregarServer();
-  setInterval(carregarServer, 500);
   carregarChat();
+  setInterval(carregarServer, 500);
   setInterval(carregarChat, 500);
 };

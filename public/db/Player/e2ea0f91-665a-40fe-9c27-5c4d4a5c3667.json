@@ -8,8 +8,8 @@
     "maxHealth": 20,
     "hungry": 20,
     "isAlive": true,
-    "age": 12220,
-    "lookingAt": "minecraft:spruce_stairs",
+    "age": 7840,
+    "lookingAt": "minecraft:leaves",
     "PlayerInfo": {
       "hunger": 20,
       "exp": 0,
@@ -17,7 +17,7 @@
       "screenSize": "-1x-1"
     },
     "Inventory": {
-      "heldItem": "customnpcs:npcScripter",
+      "heldItem": "minecraft:diamond_sword",
       "armor": {
         "head": "Air",
         "chest": "Air",
@@ -27,9 +27,9 @@
     },
     "position": {
       "dimension": 0,
-      "x": -109.76836607913776,
+      "x": -81.5,
       "y": 109,
-      "z": -947.4576156904876
+      "z": -925.5
     }
   }
 }

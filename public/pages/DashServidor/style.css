@@ -68,7 +68,7 @@ body {
 .tab {
   /* Botões */
   background: linear-gradient(rgba(139, 139, 139, 0.5), rgba(41, 41, 41, 0.5)),
-    url('../../assets/blocks/grass_top.png');
+    url('../../assets/items/grass_top.png');
   /* Aplica um Degradê de fundo */
   padding: 20px 50px;
   /* Adiciona espaçamento interno ( V e H )*/

@@ -8,7 +8,7 @@
     "maxHealth": 20,
     "hungry": 20,
     "isAlive": true,
-    "age": 1750,
+    "age": 7500,
     "lookingAt": "minecraft:leaves",
     "PlayerInfo": {
       "hunger": 20,
@@ -27,9 +27,9 @@
     },
     "position": {
       "dimension": 0,
-      "x": -92.5,
+      "x": -93.20041870796975,
       "y": 109,
-      "z": -923.5
+      "z": -931.0013893211654
     }
   }
 }
